@@ -1,6 +1,10 @@
 using System;
-public enum CardType {
-	Credit,
-	Debit,
 
+namespace SofTechCore21MVC.Models
+{
+    public enum CardType
+    {
+        Credit,
+        Debit
+    }
 }

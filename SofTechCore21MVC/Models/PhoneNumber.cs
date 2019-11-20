@@ -1,6 +1,10 @@
 using System;
-public enum PhoneNumber {
-	Mobile,
-	Landline,
 
+namespace SofTechCore21MVC.Models
+{
+    public enum PhoneNumber
+    {
+        Mobile,
+        Landline
+    }
 }

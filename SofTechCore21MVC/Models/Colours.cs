@@ -1,9 +1,13 @@
 using System;
-public enum Colours {
-	White,
-	Black,
-	Burgundy,
-	NavyBlue,
-	Grey,
 
+namespace SofTechCore21MVC.Models
+{
+    public enum Colours
+    {
+        White,
+        Black,
+        Burgundy,
+        NavyBlue,
+        Grey
+    }
 }

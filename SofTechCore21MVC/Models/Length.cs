@@ -1,7 +1,11 @@
 using System;
-public enum Length {
-	Short,
-	Regular,
-	Long,
 
+namespace SofTechCore21MVC.Models
+{
+    public enum Length
+    {
+        Short,
+        Regular,
+        Long
+    }
 }

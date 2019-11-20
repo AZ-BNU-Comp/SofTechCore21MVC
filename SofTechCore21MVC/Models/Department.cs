@@ -1,9 +1,13 @@
 using System;
-public enum Department {
-	Computing,
-	Science,
-	Mathematics,
-	Sports,
-	Business,
+namespace SofTechCore21MVC.Models
+{
+    public enum Department
+    {
+        Computing,
+        Science,
+        Mathematics,
+        Sports,
+        Business,
 
+    }
 }

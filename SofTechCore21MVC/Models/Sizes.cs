@@ -1,7 +1,11 @@
 using System;
-public enum Sizes {
-	Small,
-	Medium,
-	Large,
 
+namespace SofTechCore21MVC.Models
+{
+    public enum Sizes
+    {
+        Small,
+        Medium,
+        Large
+    }
 }

@@ -1,7 +1,10 @@
 using System;
-public enum Sleeves {
-	Non,
-	Short,
-	Long,
-
+namespace SofTechCore21MVC.Models
+{
+    public enum Sleeves
+    {
+        Non,
+        Short,
+        Long
+    }
 }

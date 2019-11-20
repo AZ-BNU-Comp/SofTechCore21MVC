@@ -2,20 +2,11 @@ using System;
 
 namespace SofTechCore21MVC.Models
 {
-    public class Trousers : Garment
+    public class Favourite
     {
-        private int trousersID;
-        public int TrousersID
-        {
-            get
-            {
-                return trousersID;
-            }
-            set
-            {
-                trousersID = value;
-            }
-        }
+
+        public int FavouriteID { get; set; }
+
         private int garmentID;
         public int GarmentID
         {
@@ -28,18 +19,22 @@ namespace SofTechCore21MVC.Models
                 garmentID = value;
             }
         }
-        private Length length;
-        public Length Length
+        private int customerID;
+        public int CustomerID
         {
             get
             {
-                return length;
+                return customerID;
             }
             set
             {
-                length = value;
+                customerID = value;
             }
         }
+
+        //private Customer[] may_add_Garments_to;
+
+        private Garment may_be_part_of;
 
     }
 }

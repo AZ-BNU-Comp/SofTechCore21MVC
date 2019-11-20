@@ -1,5 +1,7 @@
 using System;
-namespace SofTechCore21MVC
+using System.Collections.Generic;
+
+namespace SofTechCore21MVC.Models
 {
     /// <summary>
     /// Ana Zorro
@@ -36,14 +38,19 @@ namespace SofTechCore21MVC
             get; set;
         }
 
-        //public virtual ShoppingCart ShoppingCart;
-        //public virtual Address Address;
-        //public virtual PaymentCard holds;
-        //public virtual Review[] is_done_by;
+        public virtual Address Address { get; set; }
+        
+        public virtual PaymentCard PaymentCard { get; set; }
 
-        //public virtual Favourites is_added_by;
-        //public virtual Complaint[] is_sent_by;
-        //public virtual Invoice[] belongs_to;
+        public virtual ICollection<ShoppingCart> Orders { get; set; }
 
+        public virtual ICollection<Review> Reviews { get; set; }
+
+        public virtual ICollection<Favourite> Favourites { get; set; }
+        
+        public virtual ICollection<Complaint> Complaints { get; set; }
+        
+        // NOT NEEDED
+        // public virtual Invoice[] belongs_to;
     }
 }
