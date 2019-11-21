@@ -4,8 +4,8 @@ namespace SofTechCore21MVC.Models
 {
     /// <summary>
     /// Abdol Hadi
-    /// </summary>
-   
+    /// </summary> This page allows the cutomers to view all the garments that are available.
+
 
     public class Garment
     {
