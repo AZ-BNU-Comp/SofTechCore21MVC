@@ -9,30 +9,10 @@ namespace SofTechCore21MVC.Models
 
     public class Garment
     {
-        private int garmentID;
-        public int GarmentID
-        {
-            get
-            {
-                return garmentID;
-            }
-            set
-            {
-                garmentID = value;
-            }
-        }
-        private string garmentName;
-        public string GarmentName
-        {
-            get
-            {
-                return garmentName;
-            }
-            set
-            {
-                garmentName = value;
-            }
-        }
+        
+        public int GarmentID { get; set; }
+        
+        public string GarmentName { get; set; }
         private Gender gender;
         public Gender Gender
         {

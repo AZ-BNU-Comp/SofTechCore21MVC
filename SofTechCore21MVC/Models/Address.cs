@@ -7,30 +7,8 @@ namespace SofTechCore21MVC.Models
     /// </summary>
     public class Address
     {
-        private int addressID;
-        public int AddressID
-        {
-            get
-            {
-                return addressID;
-            }
-            set
-            {
-                addressID = value;
-            }
-        }
-        private int customerID;
-        public int CustomerID
-        {
-            get
-            {
-                return customerID;
-            }
-            set
-            {
-                customerID = value;
-            }
-        }
+        public int AddressID { get; set; }
+        public int CustomerID { get; set; }
         private int houseNumber;
         public int HouseNumber
         {

@@ -4,30 +4,10 @@ namespace SofTechCore21MVC.Models
 {
     public class Top : Garment
     {
-        private int topID;
-        public int TopID
-        {
-            get
-            {
-                return topID;
-            }
-            set
-            {
-                topID = value;
-            }
-        }
-        private int garmentID;
-        public int GarmentID
-        {
-            get
-            {
-                return garmentID;
-            }
-            set
-            {
-                garmentID = value;
-            }
-        }
+        
+        public int TopID { get; set; }
+        
+        public int GarmentID { get; set; }
         private Sleeves sleeves;
         public Sleeves Sleeves
         {

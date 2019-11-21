@@ -1,4 +1,7 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
+
 namespace SofTechCore21MVC.Models
 {
     /// <summary>
@@ -6,94 +9,14 @@ namespace SofTechCore21MVC.Models
     /// </summary>
     public class Review
     {
-        private int reviewID;
-        public int ReviewID
-        {
-            get
-            {
-                return reviewID;
-            }
-            set
-            {
-                reviewID = value;
-            }
-        }
-        private int customerID;
-        public int CustomerID
-        {
-            get
-            {
-                return customerID;
-            }
-            set
-            {
-                customerID = value;
-            }
-        }
-        private int garmentID;
-        public int GarmentID
-        {
-            get
-            {
-                return garmentID;
-            }
-            set
-            {
-                garmentID = value;
-            }
-        }
-        private string title;
-        public string Title
-        {
-            get
-            {
-                return title;
-            }
-            set
-            {
-                title = value;
-            }
-        }
-        private string statement;
-        public string Statement
-        {
-            get
-            {
-                return statement;
-            }
-            set
-            {
-                statement = value;
-            }
-        }
-        private float rating;
-        public float Rating
-        {
-            get
-            {
-                return rating;
-            }
-            set
-            {
-                rating = value;
-            }
-        }
-        private int reviewDate;
-        public int ReviewDate
-        {
-            get
-            {
-                return reviewDate;
-            }
-            set
-            {
-                reviewDate = value;
-            }
-        }
-
-        private OrderItem[] may_have;
-
-        private Customer[] may_leave;
-
+        public int ReviewID { get; set; }
+        public int CustomerID { get; set; }
+        public int GarmentID { get; set; }
+        public string Title { get; set; }
+        public string Statement { get; set; }
+        public float Rating { get; set; }
+        public int ReviewDate { get; set; }
+        public virtual ICollection<OrderItem> OrderItem { get; set; }
+        public virtual Customer Customer { get; set; }
     }
 }
