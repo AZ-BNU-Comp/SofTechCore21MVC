@@ -1,6 +1,9 @@
 using System;
 namespace SofTechCore21MVC.Models
 {
+    /// <summary>
+    /// Ana Zorro
+    /// </summary>
     public class Review
     {
         private int reviewID;
