@@ -2,6 +2,9 @@ using System;
 
 namespace SofTechCore21MVC.Models
 {
+    /// <summary>
+    /// Abdikani Esse 21211756
+    /// </summary>
     public class Address
     {
         private int addressID;
