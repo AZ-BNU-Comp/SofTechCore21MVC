@@ -4,7 +4,7 @@ namespace SofTechCore21MVC.Models
 
     /// <summary>
     /// Abdol Hadi
-    /// </summary>
+    /// </summary>  The Invoice allows the customers to see what they have purchased.
 {
     public class Invoice
     {
