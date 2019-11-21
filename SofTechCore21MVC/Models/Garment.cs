@@ -2,6 +2,11 @@ using System;
 
 namespace SofTechCore21MVC.Models
 {
+    /// <summary>
+    /// Abdol Hadi
+    /// </summary>
+   
+
     public class Garment
     {
         private int garmentID;

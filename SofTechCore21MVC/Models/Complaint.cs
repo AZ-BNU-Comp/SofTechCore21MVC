@@ -2,6 +2,9 @@ using System;
 
 namespace SofTechCore21MVC.Models
 {
+    /// <summary>
+    /// Hasan
+    /// </summary>
     public class Complaint
     {
         private int complaintID;

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace SofTechCore21MVC.Models
 {
+    /// <summary>
+    /// Abdikani Esse 21211756
+    /// </summary>
     public class ShoppingCart
     {
         public int ShoppingCartID { get; set; }
