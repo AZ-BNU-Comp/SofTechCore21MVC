@@ -2,6 +2,10 @@ using System;
 
 namespace SofTechCore21MVC.Models
 {
+    /// <summary>
+    /// Rohail Siddiqui
+    /// </summary>
+    
     public class Top : Garment
     {
         private int topID;
@@ -21,7 +25,7 @@ namespace SofTechCore21MVC.Models
         {
             get
             {
-                return garmentID;
+                return garmentID; 
             }
             set
             {
