@@ -9,12 +9,12 @@ namespace SofTechCore21MVC.Models
     {
         public int AddressID { get; set; }
         public int CustomerID { get; set; }
-        public int HouseNumberID { get; set; }
-        public string StreetNameID { get; set; }
-        public string CountyID { get; set; }
-        public string CityID { get; set; }
-        public string CountryID { get; set; }
-        public string PostCodeID { get; set; }
+        public int HouseNumber { get; set; }
+        public string StreetName { get; set; }
+        public string County { get; set; }
+        public string City { get; set; }
+        public string Country { get; set; }
+        public string PostCode { get; set; }
         private Customer Customer { get; set; }
        
         
