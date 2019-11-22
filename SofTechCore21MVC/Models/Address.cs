@@ -9,80 +9,22 @@ namespace SofTechCore21MVC.Models
     {
         public int AddressID { get; set; }
         public int CustomerID { get; set; }
-        private int houseNumber;
-        public int HouseNumber
-        {
-            get
-            {
-                return houseNumber;
-            }
-            set
-            {
-                houseNumber = value;
-            }
-        }
-        private string streetName;
-        public string StreetName
-        {
-            get
-            {
-                return streetName;
-            }
-            set
-            {
-                streetName = value;
-            }
-        }
-        private string county;
-        public string County
-        {
-            get
-            {
-                return county;
-            }
-            set
-            {
-                county = value;
-            }
-        }
-        private string city;
-        public string City
-        {
-            get
-            {
-                return city;
-            }
-            set
-            {
-                city = value;
-            }
-        }
-        private string country;
-        public string Country
-        {
-            get
-            {
-                return country;
-            }
-            set
-            {
-                country = value;
-            }
-        }
-        private string postCode;
-        public string PostCode
-        {
-            get
-            {
-                return postCode;
-            }
-            set
-            {
-                postCode = value;
-            }
-        }
+        public int HouseNumberID { get; set; }
+        public string StreetNameID { get; set; }
+        public string CountyID { get; set; }
+        public string CityID { get; set; }
+        public string CountryID { get; set; }
+        public string PostCodeID { get; set; }
+        private Customer Customer { get; set; }
+       
+        
+        
 
-        private Customer[] may_enter;
+        
+    
+       
+       
+        
 
     }
 }
