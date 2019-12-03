@@ -8,42 +8,11 @@ namespace SofTechCore21MVC.Models
 
     public class Trousers : Garment
     {
-        private int trousersID;
-        public int TrousersID
-        {
-            get
-            {
-                return trousersID;
-            }
-            set
-            {
-                trousersID = value;
-            }
-        }
-        private int garmentID;
-        public int GarmentID
-        {
-            get
-            {
-                return garmentID;
-            }
-            set
-            {
-                garmentID = value;
-            }
-        }
-        private Length length;
-        public Length Length
-        {
-            get
-            {
-                return length;
-            }
-            set
-            {
-                length = value;
-            }
-        }
+        public int TrousersID { get; set; }
+
+        //public int GarmentID { get; set; }
+
+        public Length Length { get; set; }
 
     }
 }
