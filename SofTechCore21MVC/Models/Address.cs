@@ -18,7 +18,7 @@ namespace SofTechCore21MVC.Models
         //public int CustomerID { get; set; }
 
         [Required, StringLength(20), DisplayName("House No/Name")]
-        public int HouseNumber { get; set; }
+        public string HouseNumber { get; set; }
 
         
         [Required, StringLength(20), DisplayName("Street Name")]
