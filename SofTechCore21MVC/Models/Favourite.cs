@@ -10,34 +10,13 @@ namespace SofTechCore21MVC.Models
 
         public int FavouriteID { get; set; }
 
-        private int garmentID;
-        public int GarmentID
-        {
-            get
-            {
-                return garmentID;
-            }
-            set
-            {
-                garmentID = value;
-            }
-        }
-        private int customerID;
-        public int CustomerID
-        {
-            get
-            {
-                return customerID;
-            }
-            set
-            {
-                customerID = value;
-            }
-        }
+        public int GarmentID { get; set; }
 
-        //private Customer[] may_add_Garments_to;
+        public int CustomerID { get; set; }
+        
+        // Navigation Properties
 
-        private Garment may_be_part_of;
+        public virtual Garment Garment { get; set; }
 
     }
 }
