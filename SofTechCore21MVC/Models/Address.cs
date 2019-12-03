@@ -1,46 +1,64 @@
 using System;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace SofTechCore21MVC.Models
 {
     /// <summary>
     /// Abdikani Esse 21211756
+    /// Feedback: int does not need StringLength
+    /// Annotations should be above the properties
+    /// Use enum where ever possible
     /// </summary>
     public class Address
     {
-        [Key, StringLength(50)]
+        [Key]
         public int AddressID { get; set; }
-        [StringLength(50)]
-        public int CustomerID { get; set; }
-        [Required, StringLength(50), DisplayName("Customer ID Name")]
+        
+        //public int CustomerID { get; set; }
+
+        [Required, StringLength(20), DisplayName("House No/Name")]
         public int HouseNumber { get; set; }
-        [Required, StringLength(50), DisplayName("HouseNumber")]
+
+        
+        [Required, StringLength(20), DisplayName("Street Name")]
         public string StreetName { get; set; }
-        [Required, DisplayName("Street Name")]
-        public string County { get; set; }
-        [Requried, DisplayName("County")]
+
+        public Counties County { get; set; }
+
+        [Required, StringLength(20)]
         public string City { get; set; }
-        [Required, DisplayName("City")]
-        public string Country { get; set; }
-        [Required, DisplayName("Country")]
+
+        [Required, StringLength(20)]
         public string PostCode { get; set; }
-        private Customer Customer { get; set; }
-        public virtual ICollection<Gender> Gender {get; set;}
-        public virtual ICollection<Customer>Customer {get; set;}
-        public virtual ICollection<PaymentCard>PaymentCard {get; set;}
-        public virtual ICollection<ShoppingCart>ShoppingCart {get; set;}
-        public virtual ICollection<OrderItem>OrderItem {get; set;}
-        public virtual ICollection<Review>Review{get; set;}
-        public virtual ICollection<Favourite>Favourite{get; set;}
-        public virtual ICollection<Complaint>Complaint{get; set;}
-       
-        
-        
 
-        
-    
-       
-       
-        
+        public Countries Country { get; set; }
 
+        //private Customer Customer { get; set; }
+
+        //public virtual ICollection<Gender> Gender {get; set;}
+        //public virtual ICollection<Customer>Customer {get; set;}
+        //public virtual ICollection<PaymentCard>PaymentCard {get; set;}
+        //public virtual ICollection<ShoppingCart>ShoppingCart {get; set;}
+        //public virtual ICollection<OrderItem>OrderItem {get; set;}
+        //public virtual ICollection<Review>Review{get; set;}
+        //public virtual ICollection<Favourite>Favourite{get; set;}
+        //public virtual ICollection<Complaint>Complaint{get; set;}
+    }
+
+    public enum Counties 
+    { 
+        Bucks,
+        Cambridge,
+        Essex,
+        Herts
+    }
+
+    public enum Countries 
+    { 
+        UK,
+        USA,
+        FRA,
+        ITA
     }
 }
