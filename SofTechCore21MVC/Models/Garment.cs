@@ -15,14 +15,11 @@ namespace SofTechCore21MVC.Models
 
         public Gender Gender { get; set; }
 
-
         public string Description { get; set; }
-
 
         public string ImageUrl { get; set; }
 
         public Colours Colour { get; set; }
-
 
         public Sizes Size { get; set; }
 
@@ -33,7 +30,7 @@ namespace SofTechCore21MVC.Models
         /// AH
         /// </summary>
   
-        public Decimal SpecialOfferPrice { get; set; }
+        public decimal SpecialOfferPrice { get; set; }
 
 
         public bool IsAccessory { get; set; }
