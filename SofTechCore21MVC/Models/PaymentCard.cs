@@ -11,21 +11,30 @@ namespace SofTechCore21MVC.Models
     {
         [Key]
         public string PaymentCardID { get; set; }
-        [Required]
-        public int CustomerID { get; set; }
-        [Required]
+        
+        //[Required]
+        //public int CustomerID { get; set; }
+        
         public CardType CardType { get; set; }
+        
         [Required, StringLength(30)]
         public string CardName { get; set; }
+        
+        // Using regular expressions would be better (#### #### #### ####)
         [Required, StringLength(16, MinimumLength = 16)]
         public string CardNumber { get; set; }
+        
         [Required, Range(1,12)]
         public int ExpiryMonth { get; set; }
+
         [Required, Range(2019, 2030)]
         public int ExpiryYear { get; set; }
+
         [Required, StringLength(3, ErrorMessage = "Please enter 3 digits",MinimumLength =3)]
         public int SecurityNumber { get; set; }
-        public virtual ICollection<Customer> Customer { get; set; }
+
+        // Navigation Properties
+        //public virtual ICollection<Customer> Customer { get; set; }
 
     }
 }

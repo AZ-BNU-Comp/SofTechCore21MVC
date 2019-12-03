@@ -26,7 +26,9 @@ namespace SofTechCore21MVC.Models
         public decimal PurchasePrice { get; set; }
 
         // Navigation Properties
+        
         public virtual ShoppingCart ShoppingCart { get; set; }
+        
         public virtual Garment Garment { get; set; }
 
         //public int ShoppingCartID { get; set; }
