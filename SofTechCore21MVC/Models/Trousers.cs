@@ -5,7 +5,6 @@ namespace SofTechCore21MVC.Models
     /// <summary>
     /// Rohail Siddiqui
     /// You may not want this class.  Please read 
-    /// https://docs.microsoft.com/en-us/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application
     /// You will get extra marks for inheritance if you add it to your evaluation
     /// but I think it is better in this case to just have a single Garment class
     /// </summary>
