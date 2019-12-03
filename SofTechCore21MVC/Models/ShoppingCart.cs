@@ -12,15 +12,28 @@ namespace SofTechCore21MVC.Models
 
         public int CustomerID { get; set; }
 
-        public int OrderDate { get; set; }
+        public DateTime OrderDate { get; set; }
 
-        public string Status { get; set; }
+        public DateTime DeliveryDate { get; set; }
+
+        public OrderStatus Status { get; set; }
+
+        public decimal Postage { get; set; }
 
         // navigation properties (relationships)
 
         public virtual ICollection<OrderItem> OrderItems { get; set; }
 
         public virtual Customer Customer { get; set; }
+    }
+
+    public enum OrderStatus
+    {
+        Recieved,
+        Packaged,
+        Delivered,
+        Cancelled,
+        Closed
     }
 
 }
