@@ -11,6 +11,5 @@ namespace SofTechCore21MVC.Models
 
     public class Trousers : Garment
     {
-        public Length Length { get; set; }
     }
 }

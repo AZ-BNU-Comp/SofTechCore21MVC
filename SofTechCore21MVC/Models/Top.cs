@@ -12,6 +12,5 @@ namespace SofTechCore21MVC.Models
 
     public class Top : Garment
     {
-        public Sleeves Sleeves { get; set; }
     }
 }

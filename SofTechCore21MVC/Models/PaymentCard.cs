@@ -12,16 +12,13 @@ namespace SofTechCore21MVC.Models
         [Key]
         public string PaymentCardID { get; set; }
         
-        //[Required]
-        //public int CustomerID { get; set; }
-        
         public CardType CardType { get; set; }
         
         [Required, StringLength(30)]
         public string CardName { get; set; }
         
         // Using regular expressions would be better (#### #### #### ####)
-        [Required, StringLength(16, MinimumLength = 16)]
+        [Required, StringLength(20, MinimumLength = 20)]
         public string CardNumber { get; set; }
         
         [Required, Range(1,12)]
@@ -32,9 +29,5 @@ namespace SofTechCore21MVC.Models
 
         [Required, StringLength(3, ErrorMessage = "Please enter 3 digits",MinimumLength =3)]
         public int SecurityNumber { get; set; }
-
-        // Navigation Properties
-        //public virtual ICollection<Customer> Customer { get; set; }
-
     }
 }

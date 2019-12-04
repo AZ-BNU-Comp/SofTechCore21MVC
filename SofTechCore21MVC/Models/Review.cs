@@ -34,7 +34,6 @@ namespace SofTechCore21MVC.Models
 
         // Navigation Properties
 
-        //public virtual ICollection<OrderItem> OrderItem { get; set; }
         public virtual Customer Customer { get; set; }
 
         public virtual Garment Garment { get; set; }

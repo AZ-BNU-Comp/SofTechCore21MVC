@@ -36,10 +36,16 @@ namespace SofTechCore21MVC.Models
         public bool IsAccessory { get; set; }
 
         public Department Department { get; set; }
- 
 
+        public Sleeves Sleeves { get; set; }
+        public Length Length { get; set; }
         ///private Favourite[] is_a_chosen;
         ///private OrderItem[] is_;
 
+        public Garment()
+        {
+            Length = Length.Non;
+            Sleeves = Sleeves.Non;
+        }
     }
 }

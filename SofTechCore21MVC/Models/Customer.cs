@@ -22,8 +22,9 @@ namespace SofTechCore21MVC.Models
         [Required, StringLength(20), DisplayName("Last Name")]
         public string Surname { get; set; }
 
-        [Required, Display(Name ="Date of Birth"), DataType(DataType.Date), 
-            DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [Required, Display(Name ="Date of Birth")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime BirthDate { get; set; }
 
         public Gender Gender { get; set; }
@@ -33,9 +34,6 @@ namespace SofTechCore21MVC.Models
 
         [Required, StringLength(16, ErrorMessage = "Please enter a valid UK contact number")]
         public PhoneNumber PhoneNumber { get; set; }
-
-        // Navigation Properties
-        //public virtual ICollection<Gender> Gender { get; set; }
 
         // For simplicity use a single address
         public virtual Address Address { get; set; }
@@ -50,8 +48,5 @@ namespace SofTechCore21MVC.Models
         public virtual ICollection<Favourite> Favourites { get; set; }
 
         public virtual ICollection<Complaint> Complaints { get; set; }
-        
-        // NOT NEEDED
-        // public virtual Invoice[] belongs_to;
     }
 }
