@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using SofTechCore21MVC.Models;
 
 namespace SofTechCore21MVC.Data
 {
@@ -12,5 +13,9 @@ namespace SofTechCore21MVC.Data
             : base(options)
         {
         }
+        public DbSet<PaymentCard> PaymentCard { get; set; }
+        public DbSet<Customer> Customer { get; set; }
+
+
     }
 }

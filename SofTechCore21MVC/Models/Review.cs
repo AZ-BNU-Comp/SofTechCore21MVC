@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 namespace SofTechCore21MVC.Models
 {
     /// <summary>
-    /// Ana Zorro
+    /// Rohail
     /// </summary>
     public class Review
     {
