@@ -20,8 +20,14 @@ namespace SofTechCore21MVC.Data
                 return;   // DB has been seeded
             }
 
+            var Customers = new Customer[]
+            {
+                //10
+            };
+
             var PaymentCards = new PaymentCard[]
             {
+                //10
                 new PaymentCard
                 {
                     CardName = "Joe Blogs",
@@ -41,6 +47,26 @@ namespace SofTechCore21MVC.Data
                     SecurityNumber = 124
                 }
             };
+
+            var Addresses = new Address[]
+            {
+                new Address
+                {
+                    City = "High Wycombe",
+                    County = "Bucks",
+                    Country = "United Kingdom"
+
+                }
+            };
+
+            var OrderItems = new OrderItem[]
+            {
+                new OrderItem
+                {
+                    Garment = "Tops",
+
+                }
+            }
         }
     }
 }

@@ -24,6 +24,7 @@ namespace SofTechCore21MVC.Models
         [Required, StringLength(20), DisplayName("Street Name")]
         public string StreetName { get; set; }
 
+        [Required, StringLength(20)]
         public Counties County { get; set; }
 
         [Required, StringLength(20)]
