@@ -37,8 +37,13 @@ namespace SofTechCore21MVC.Models
 
         public Department Department { get; set; }
 
+        // Tops have sleeves
         public Sleeves Sleeves { get; set; }
+
+        // Trousers have a length
         public Length Length { get; set; }
+
+        // 
         ///private Favourite[] is_a_chosen;
         ///private OrderItem[] is_;
 
