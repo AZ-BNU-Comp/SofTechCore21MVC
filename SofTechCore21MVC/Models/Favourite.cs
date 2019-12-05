@@ -10,9 +10,11 @@ namespace SofTechCore21MVC.Models
     {
         [Key]
         public int FavouriteID { get; set; }
+
         [Required]
         public int GarmentID { get; set; }
 
+        [Required]
         public int CustomerID { get; set; }
         
         // Navigation Properties
