@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace SofTechCore21MVC.Models
 {
@@ -7,9 +8,9 @@ namespace SofTechCore21MVC.Models
     /// </summary>
     public class Favourite
     {
-
+        [Key]
         public int FavouriteID { get; set; }
-
+        [Required]
         public int GarmentID { get; set; }
 
         public int CustomerID { get; set; }
