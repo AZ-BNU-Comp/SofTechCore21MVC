@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -11,23 +10,23 @@ using SofTechCore21MVC.Models;
 
 namespace SofTechCore21MVC.Controllers
 {
-    //[Authorize (Roles ="Admin")]
-    public class AddressesController : Controller
+    public class ReviewsController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public AddressesController(ApplicationDbContext context)
+        public ReviewsController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Addresses
+        // GET: Reviews
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Address.ToListAsync());
+            var applicationDbContext = _context.Review.Include(r => r.Customer).Include(r => r.Garment);
+            return View(await applicationDbContext.ToListAsync());
         }
 
-        // GET: Addresses/Details/5
+        // GET: Reviews/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -35,39 +34,45 @@ namespace SofTechCore21MVC.Controllers
                 return NotFound();
             }
 
-            var address = await _context.Address
-                .FirstOrDefaultAsync(m => m.AddressID == id);
-            if (address == null)
+            var review = await _context.Review
+                .Include(r => r.Customer)
+                .Include(r => r.Garment)
+                .FirstOrDefaultAsync(m => m.ReviewID == id);
+            if (review == null)
             {
                 return NotFound();
             }
 
-            return View(address);
+            return View(review);
         }
 
-        // GET: Addresses/Create
+        // GET: Reviews/Create
         public IActionResult Create()
         {
+            ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "Email");
+            ViewData["GarmentID"] = new SelectList(_context.Garment, "GarmentID", "GarmentID");
             return View();
         }
 
-        // POST: Addresses/Create
+        // POST: Reviews/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("AddressID,HouseNumber,StreetName,County,City,PostCode,Country")] Address address)
+        public async Task<IActionResult> Create([Bind("ReviewID,CustomerID,GarmentID,Title,Statement,Rating,ReviewDate")] Review review)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(address);
+                _context.Add(review);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(address);
+            ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "Email", review.CustomerID);
+            ViewData["GarmentID"] = new SelectList(_context.Garment, "GarmentID", "GarmentID", review.GarmentID);
+            return View(review);
         }
 
-        // GET: Addresses/Edit/5
+        // GET: Reviews/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -75,22 +80,24 @@ namespace SofTechCore21MVC.Controllers
                 return NotFound();
             }
 
-            var address = await _context.Address.FindAsync(id);
-            if (address == null)
+            var review = await _context.Review.FindAsync(id);
+            if (review == null)
             {
                 return NotFound();
             }
-            return View(address);
+            ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "Email", review.CustomerID);
+            ViewData["GarmentID"] = new SelectList(_context.Garment, "GarmentID", "GarmentID", review.GarmentID);
+            return View(review);
         }
 
-        // POST: Addresses/Edit/5
+        // POST: Reviews/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("AddressID,HouseNumber,StreetName,County,City,PostCode,Country")] Address address)
+        public async Task<IActionResult> Edit(int id, [Bind("ReviewID,CustomerID,GarmentID,Title,Statement,Rating,ReviewDate")] Review review)
         {
-            if (id != address.AddressID)
+            if (id != review.ReviewID)
             {
                 return NotFound();
             }
@@ -99,12 +106,12 @@ namespace SofTechCore21MVC.Controllers
             {
                 try
                 {
-                    _context.Update(address);
+                    _context.Update(review);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!AddressExists(address.AddressID))
+                    if (!ReviewExists(review.ReviewID))
                     {
                         return NotFound();
                     }
@@ -115,10 +122,12 @@ namespace SofTechCore21MVC.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(address);
+            ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "Email", review.CustomerID);
+            ViewData["GarmentID"] = new SelectList(_context.Garment, "GarmentID", "GarmentID", review.GarmentID);
+            return View(review);
         }
 
-        // GET: Addresses/Delete/5
+        // GET: Reviews/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -126,30 +135,32 @@ namespace SofTechCore21MVC.Controllers
                 return NotFound();
             }
 
-            var address = await _context.Address
-                .FirstOrDefaultAsync(m => m.AddressID == id);
-            if (address == null)
+            var review = await _context.Review
+                .Include(r => r.Customer)
+                .Include(r => r.Garment)
+                .FirstOrDefaultAsync(m => m.ReviewID == id);
+            if (review == null)
             {
                 return NotFound();
             }
 
-            return View(address);
+            return View(review);
         }
 
-        // POST: Addresses/Delete/5
+        // POST: Reviews/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var address = await _context.Address.FindAsync(id);
-            _context.Address.Remove(address);
+            var review = await _context.Review.FindAsync(id);
+            _context.Review.Remove(review);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool AddressExists(int id)
+        private bool ReviewExists(int id)
         {
-            return _context.Address.Any(e => e.AddressID == id);
+            return _context.Review.Any(e => e.ReviewID == id);
         }
     }
 }
