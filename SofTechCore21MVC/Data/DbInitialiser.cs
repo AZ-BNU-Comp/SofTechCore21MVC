@@ -45,6 +45,24 @@ namespace SofTechCore21MVC.Data
                     ExpiryMonth = 2,
                     ExpiryYear = 2022,
                     SecurityNumber = 124
+                },
+                new PaymentCard
+                {
+                    CardName = "Joe Blogs",
+                    CardNumber = "1234 5678 9101 1213",
+                    CardType = CardType.Debit,
+                    ExpiryMonth = 1,
+                    ExpiryYear = 2022,
+                    SecurityNumber = 123
+                },
+                new PaymentCard
+                {
+                    CardName = "Josephin Blogs",
+                    CardNumber = "5987 6804 9101 1213",
+                    CardType = CardType.Debit,
+                    ExpiryMonth = 2,
+                    ExpiryYear = 2022,
+                    SecurityNumber = 124
                 }
             };
 
@@ -53,20 +71,103 @@ namespace SofTechCore21MVC.Data
                 new Address
                 {
                     City = "High Wycombe",
-                    County = "Bucks",
-                    Country = "United Kingdom"
-
-                }
+                    County = Counties.Bucks,
+                    Country = Countries.UK,
+                    HouseNumber = "12",
+                    StreetName = "Telford Way",
+                    PostCode = "HP13 5TA"
+                },
+                new Address
+                {
+                    City = "High Wycombe",
+                    County = Counties.Bucks,
+                    Country = Countries.UK,
+                    HouseNumber = "12",
+                    StreetName = "Telford Way",
+                    PostCode = "HP13 5TA"
+                },
+                new Address
+                {
+                    City = "High Wycombe",
+                    County = Counties.Bucks,
+                    Country = Countries.UK,
+                    HouseNumber = "12",
+                    StreetName = "Telford Way",
+                    PostCode = "HP13 5TA"
+                },
+                new Address
+                {
+                    City = "High Wycombe",
+                    County = Counties.Bucks,
+                    Country = Countries.UK,
+                    HouseNumber = "12",
+                    StreetName = "Telford Way",
+                    PostCode = "HP13 5TA"
+                },
+                new Address
+                {
+                    City = "High Wycombe",
+                    County = Counties.Bucks,
+                    Country = Countries.UK,
+                    HouseNumber = "12",
+                    StreetName = "Telford Way",
+                    PostCode = "HP13 5TA"
+                },
+                new Address
+                {
+                    City = "High Wycombe",
+                    County = Counties.Bucks,
+                    Country = Countries.UK,
+                    HouseNumber = "12",
+                    StreetName = "Telford Way",
+                    PostCode = "HP13 5TA"
+                },
+                new Address
+                {
+                    City = "High Wycombe",
+                    County = Counties.Bucks,
+                    Country = Countries.UK,
+                    HouseNumber = "12",
+                    StreetName = "Telford Way",
+                    PostCode = "HP13 5TA"
+                },
+                new Address
+                {
+                    City = "High Wycombe",
+                    County = Counties.Bucks,
+                    Country = Countries.UK,
+                    HouseNumber = "12",
+                    StreetName = "Telford Way",
+                    PostCode = "HP13 5TA"
+                },
+                new Address
+                {
+                    City = "High Wycombe",
+                    County = Counties.Bucks,
+                    Country = Countries.UK,
+                    HouseNumber = "12",
+                    StreetName = "Telford Way",
+                    PostCode = "HP13 5TA"
+                },
+                new Address
+                {
+                    City = "High Wycombe",
+                    County = Counties.Bucks,
+                    Country = Countries.UK,
+                    HouseNumber = "12",
+                    StreetName = "Telford Way",
+                    PostCode = "HP13 5TA"
+                },
             };
 
             var OrderItems = new OrderItem[]
             {
                 new OrderItem
                 {
-                    Garment = "Tops",
+                    //Garment = 
 
                 }
-            }
+            };
         }
     }
 }
