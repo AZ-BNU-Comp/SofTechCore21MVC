@@ -36,14 +36,6 @@ namespace SofTechCore21MVC.Models
 
         //private Customer Customer { get; set; }
 
-        //public virtual ICollection<Gender> Gender {get; set;}
-        //public virtual ICollection<Customer>Customer {get; set;}
-        //public virtual ICollection<PaymentCard>PaymentCard {get; set;}
-        //public virtual ICollection<ShoppingCart>ShoppingCart {get; set;}
-        //public virtual ICollection<OrderItem>OrderItem {get; set;}
-        //public virtual ICollection<Review>Review{get; set;}
-        //public virtual ICollection<Favourite>Favourite{get; set;}
-        //public virtual ICollection<Complaint>Complaint{get; set;}
     }
 
     public enum Counties 
