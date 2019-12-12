@@ -20,26 +20,22 @@ namespace SofTechCore21MVC.Models
         public Gender Gender { get; set; }
 
         [Required, StringLength(4000), DisplayName("Description")]
+        [DataType(DataType.MultilineText)]
         public string Description { get; set; }
 
-        [Required]
+        [Required, StringLength(100), DataType(DataType.Url), DisplayName("Image URL")]
         public string ImageUrl { get; set; }
 
         public Colours Colour { get; set; }
 
         public Sizes Size { get; set; }
 
-        [Required, DisplayFormat(DataFormatString = "{0:C0}")]
+        [Required, DisplayFormat(DataFormatString = "{0:C0}"), DataType(DataType.Currency)]
         public decimal Price { get; set; }
 
-        /// <summary>
-        /// AH
-        /// </summary>
-
-        [Required, DisplayFormat(DataFormatString = "{0:C0}")]
+        [Required, DisplayFormat(DataFormatString = "{0:C0}"), DataType(DataType.Currency), DisplayName("Offer Price")]
         public decimal SpecialOfferPrice { get; set; }
 
-        [Required]
         public bool IsAccessory { get; set; }
 
         public Department Department { get; set; }
@@ -50,14 +46,18 @@ namespace SofTechCore21MVC.Models
         // Trousers have a length
         public Length Length { get; set; }
 
+        /// <summary>
+        /// AH Navigation
+        /// </summary>
+
         // 
-        ///private Favourite[] is_a_chosen;
-        ///private OrderItem[] is_;
+ 
 
         public Garment()
         {
             Length = Length.Non;
             Sleeves = Sleeves.Non;
+            IsAccessory = false;
         }
     }
 }

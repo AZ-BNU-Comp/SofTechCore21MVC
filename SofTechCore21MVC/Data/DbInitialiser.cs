@@ -6,67 +6,21 @@ using System.Threading.Tasks;
 
 namespace SofTechCore21MVC.Data
 {
+    /// <summary>
+    /// Abdol Garment and Shopping Cart
+    /// Abdi Address and Order Item
+    /// </summary>
     public static class DbInitialiser
     {
         public static void SeedDb(ApplicationDbContext context)
         {
             SeedPaymentCards(context);
+            SeedAddresses(context);
         }
 
-        private static void SeedPaymentCards(ApplicationDbContext context)
+        private static void SeedAddresses(ApplicationDbContext context)
         {
-            if (context.PaymentCard.Any())
-            {
-                return;   // DB has been seeded
-            }
-
-            var Customers = new Customer[]
-            {
-                //10
-            };
-
-            var PaymentCards = new PaymentCard[]
-            {
-                //10
-                new PaymentCard
-                {
-                    CardName = "Joe Blogs",
-                    CardNumber = "1234 5678 9101 1213",
-                    CardType = CardType.Debit,
-                    ExpiryMonth = 1,
-                    ExpiryYear = 2022,
-                    SecurityNumber = 123
-                },
-                new PaymentCard
-                {
-                    CardName = "Josephin Blogs",
-                    CardNumber = "5987 6804 9101 1213",
-                    CardType = CardType.Debit,
-                    ExpiryMonth = 2,
-                    ExpiryYear = 2022,
-                    SecurityNumber = 124
-                },
-                new PaymentCard
-                {
-                    CardName = "Joe Blogs",
-                    CardNumber = "1234 5678 9101 1213",
-                    CardType = CardType.Debit,
-                    ExpiryMonth = 1,
-                    ExpiryYear = 2022,
-                    SecurityNumber = 123
-                },
-                new PaymentCard
-                {
-                    CardName = "Josephin Blogs",
-                    CardNumber = "5987 6804 9101 1213",
-                    CardType = CardType.Debit,
-                    ExpiryMonth = 2,
-                    ExpiryYear = 2022,
-                    SecurityNumber = 124
-                }
-            };
-
-            var Addresses = new Address[]
+            var addresses = new Address[]
             {
                 new Address
                 {
@@ -160,14 +114,69 @@ namespace SofTechCore21MVC.Data
                 },
             };
 
-            var OrderItems = new OrderItem[]
+            foreach (Address a in addresses)
             {
-                new OrderItem
-                {
-                    //Garment = 
+                context.Address.Add(a);
+            }
 
+            context.SaveChanges();
+
+        }
+
+        private static void SeedPaymentCards(ApplicationDbContext context)
+        {
+            if (context.PaymentCard.Any())
+            {
+                return;   // DB has been seeded
+            }
+
+            var paymentCards = new PaymentCard[]
+            {
+                //10
+                new PaymentCard
+                {
+                    CardName = "Joe Blogs",
+                    CardNumber = "1234 5678 9101 1213",
+                    CardType = CardType.Debit,
+                    ExpiryMonth = 1,
+                    ExpiryYear = 2022,
+                    SecurityNumber = 123
+                },
+                new PaymentCard
+                {
+                    CardName = "Josephin Blogs",
+                    CardNumber = "5987 6804 9101 1213",
+                    CardType = CardType.Debit,
+                    ExpiryMonth = 2,
+                    ExpiryYear = 2022,
+                    SecurityNumber = 124
+                },
+                new PaymentCard
+                {
+                    CardName = "Joe Blogs",
+                    CardNumber = "1234 5678 9101 1213",
+                    CardType = CardType.Debit,
+                    ExpiryMonth = 1,
+                    ExpiryYear = 2022,
+                    SecurityNumber = 123
+                },
+                new PaymentCard
+                {
+                    CardName = "Josephin Blogs",
+                    CardNumber = "5987 6804 9101 1213",
+                    CardType = CardType.Debit,
+                    ExpiryMonth = 2,
+                    ExpiryYear = 2022,
+                    SecurityNumber = 124
                 }
             };
+
+            foreach (PaymentCard p in paymentCards)
+            {
+                context.PaymentCard.Add(p);
+            }
+
+            context.SaveChanges();
         }
     }
 }
