@@ -16,6 +16,8 @@ namespace SofTechCore21MVC.Data
         {
             SeedPaymentCards(context);
             SeedAddresses(context);
+            SeedOrderItems(context);
+            
         }
 
         private static void SeedAddresses(ApplicationDbContext context)
@@ -178,5 +180,24 @@ namespace SofTechCore21MVC.Data
 
             context.SaveChanges();
         }
+        private static void SeedOrderItems(ApplicationDbContext context)
+        {
+           
+                {
+                
+                context.
+
+                
+                }
+
+            
+
+
+           
+
+            
+
+        
+            
     }
-}
+
