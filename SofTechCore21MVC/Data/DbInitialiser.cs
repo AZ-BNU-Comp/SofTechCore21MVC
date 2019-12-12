@@ -185,7 +185,8 @@ namespace SofTechCore21MVC.Data
            
                 {
                 
-                context.
+                context.Orderitem.Add(p))
+
 
                 
                 }
