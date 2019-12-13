@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SofTechCore21MVC.Data;
 
-namespace SofTechCore21MVC.Data.Migrations
+namespace SofTechCore21MVC.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20191204155110_AddCustomer")]
-    partial class AddCustomer
+    [Migration("20191213162350_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -231,7 +231,9 @@ namespace SofTechCore21MVC.Data.Migrations
 
                     b.Property<int>("OrderItemID");
 
-                    b.Property<string>("Statement");
+                    b.Property<string>("Statement")
+                        .IsRequired()
+                        .HasMaxLength(4000);
 
                     b.HasKey("ComplaintID");
 
@@ -248,7 +250,7 @@ namespace SofTechCore21MVC.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("AddressID");
+                    b.Property<int>("AddressID");
 
                     b.Property<DateTime>("BirthDate");
 
@@ -262,7 +264,7 @@ namespace SofTechCore21MVC.Data.Migrations
 
                     b.Property<int>("Gender");
 
-                    b.Property<string>("PaymentCardID");
+                    b.Property<int>("PaymentCardID");
 
                     b.Property<int>("PhoneNumber")
                         .HasMaxLength(16);
@@ -312,13 +314,19 @@ namespace SofTechCore21MVC.Data.Migrations
 
                     b.Property<int>("Department");
 
-                    b.Property<string>("Description");
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(4000);
 
-                    b.Property<string>("GarmentName");
+                    b.Property<string>("GarmentName")
+                        .IsRequired()
+                        .HasMaxLength(20);
 
                     b.Property<int>("Gender");
 
-                    b.Property<string>("ImageUrl");
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasMaxLength(100);
 
                     b.Property<bool>("IsAccessory");
 
@@ -357,13 +365,14 @@ namespace SofTechCore21MVC.Data.Migrations
 
                     b.HasIndex("ShoppingCartID");
 
-                    b.ToTable("OrderItem");
+                    b.ToTable("Orderitem");
                 });
 
             modelBuilder.Entity("SofTechCore21MVC.Models.PaymentCard", b =>
                 {
-                    b.Property<string>("PaymentCardID")
-                        .ValueGeneratedOnAdd();
+                    b.Property<int>("PaymentCardID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("CardName")
                         .IsRequired()
@@ -432,7 +441,8 @@ namespace SofTechCore21MVC.Data.Migrations
 
                     b.Property<decimal>("Postage");
 
-                    b.Property<int>("Status");
+                    b.Property<int>("Status")
+                        .HasMaxLength(50);
 
                     b.HasKey("ShoppingCartID");
 
@@ -502,11 +512,13 @@ namespace SofTechCore21MVC.Data.Migrations
                 {
                     b.HasOne("SofTechCore21MVC.Models.Address", "Address")
                         .WithMany()
-                        .HasForeignKey("AddressID");
+                        .HasForeignKey("AddressID")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("SofTechCore21MVC.Models.PaymentCard", "PaymentCard")
                         .WithMany()
-                        .HasForeignKey("PaymentCardID");
+                        .HasForeignKey("PaymentCardID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("SofTechCore21MVC.Models.Favourite", b =>

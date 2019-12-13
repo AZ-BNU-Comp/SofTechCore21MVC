@@ -8,7 +8,6 @@ namespace SofTechCore21MVC.Models
     /// </summary>
     public class Favourite
     {
-        [Key]
         public int FavouriteID { get; set; }
 
         [Required]

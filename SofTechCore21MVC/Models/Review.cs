@@ -10,7 +10,6 @@ namespace SofTechCore21MVC.Models
     /// </summary>
     public class Review
     {
-        [Key]
         public int ReviewID { get; set; }
         
         [Required]

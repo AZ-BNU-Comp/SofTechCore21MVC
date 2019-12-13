@@ -9,7 +9,6 @@ namespace SofTechCore21MVC.Models
     /// </summary>
     public class Complaint
     {
-        [Key]
         public int ComplaintID { get; set; }
        
         [Required]

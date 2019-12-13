@@ -11,7 +11,6 @@ namespace SofTechCore21MVC.Models
 
     public class Garment
     {
-        [Key]
         public int GarmentID { get; set; }
 
         [Required, StringLength(20), DisplayName("Garment Name")]

@@ -2,9 +2,9 @@
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace SofTechCore21MVC.Data.Migrations
+namespace SofTechCore21MVC.Migrations
 {
-    public partial class AddCustomer : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -27,15 +27,54 @@ namespace SofTechCore21MVC.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "AspNetRoles",
+                columns: table => new
+                {
+                    Id = table.Column<string>(nullable: false),
+                    Name = table.Column<string>(maxLength: 256, nullable: true),
+                    NormalizedName = table.Column<string>(maxLength: 256, nullable: true),
+                    ConcurrencyStamp = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetRoles", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AspNetUsers",
+                columns: table => new
+                {
+                    Id = table.Column<string>(nullable: false),
+                    UserName = table.Column<string>(maxLength: 256, nullable: true),
+                    NormalizedUserName = table.Column<string>(maxLength: 256, nullable: true),
+                    Email = table.Column<string>(maxLength: 256, nullable: true),
+                    NormalizedEmail = table.Column<string>(maxLength: 256, nullable: true),
+                    EmailConfirmed = table.Column<bool>(nullable: false),
+                    PasswordHash = table.Column<string>(nullable: true),
+                    SecurityStamp = table.Column<string>(nullable: true),
+                    ConcurrencyStamp = table.Column<string>(nullable: true),
+                    PhoneNumber = table.Column<string>(nullable: true),
+                    PhoneNumberConfirmed = table.Column<bool>(nullable: false),
+                    TwoFactorEnabled = table.Column<bool>(nullable: false),
+                    LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
+                    LockoutEnabled = table.Column<bool>(nullable: false),
+                    AccessFailedCount = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Garment",
                 columns: table => new
                 {
                     GarmentID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    GarmentName = table.Column<string>(nullable: true),
+                    GarmentName = table.Column<string>(maxLength: 20, nullable: false),
                     Gender = table.Column<int>(nullable: false),
-                    Description = table.Column<string>(nullable: true),
-                    ImageUrl = table.Column<string>(nullable: true),
+                    Description = table.Column<string>(maxLength: 4000, nullable: false),
+                    ImageUrl = table.Column<string>(maxLength: 100, nullable: false),
                     Colour = table.Column<int>(nullable: false),
                     Size = table.Column<int>(nullable: false),
                     Price = table.Column<decimal>(nullable: false),
@@ -51,6 +90,130 @@ namespace SofTechCore21MVC.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "PaymentCard",
+                columns: table => new
+                {
+                    PaymentCardID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    CardType = table.Column<int>(nullable: false),
+                    CardName = table.Column<string>(maxLength: 30, nullable: false),
+                    CardNumber = table.Column<string>(maxLength: 20, nullable: false),
+                    ExpiryMonth = table.Column<int>(nullable: false),
+                    ExpiryYear = table.Column<int>(nullable: false),
+                    SecurityNumber = table.Column<int>(maxLength: 3, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PaymentCard", x => x.PaymentCardID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AspNetRoleClaims",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    RoleId = table.Column<string>(nullable: false),
+                    ClaimType = table.Column<string>(nullable: true),
+                    ClaimValue = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetRoleClaims", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_AspNetRoleClaims_AspNetRoles_RoleId",
+                        column: x => x.RoleId,
+                        principalTable: "AspNetRoles",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AspNetUserClaims",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    UserId = table.Column<string>(nullable: false),
+                    ClaimType = table.Column<string>(nullable: true),
+                    ClaimValue = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetUserClaims", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_AspNetUserClaims_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AspNetUserLogins",
+                columns: table => new
+                {
+                    LoginProvider = table.Column<string>(maxLength: 128, nullable: false),
+                    ProviderKey = table.Column<string>(maxLength: 128, nullable: false),
+                    ProviderDisplayName = table.Column<string>(nullable: true),
+                    UserId = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetUserLogins", x => new { x.LoginProvider, x.ProviderKey });
+                    table.ForeignKey(
+                        name: "FK_AspNetUserLogins_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AspNetUserRoles",
+                columns: table => new
+                {
+                    UserId = table.Column<string>(nullable: false),
+                    RoleId = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetUserRoles", x => new { x.UserId, x.RoleId });
+                    table.ForeignKey(
+                        name: "FK_AspNetUserRoles_AspNetRoles_RoleId",
+                        column: x => x.RoleId,
+                        principalTable: "AspNetRoles",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_AspNetUserRoles_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AspNetUserTokens",
+                columns: table => new
+                {
+                    UserId = table.Column<string>(nullable: false),
+                    LoginProvider = table.Column<string>(maxLength: 128, nullable: false),
+                    Name = table.Column<string>(maxLength: 128, nullable: false),
+                    Value = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetUserTokens", x => new { x.UserId, x.LoginProvider, x.Name });
+                    table.ForeignKey(
+                        name: "FK_AspNetUserTokens_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Customer",
                 columns: table => new
                 {
@@ -63,8 +226,8 @@ namespace SofTechCore21MVC.Data.Migrations
                     Gender = table.Column<int>(nullable: false),
                     Email = table.Column<string>(maxLength: 100, nullable: false),
                     PhoneNumber = table.Column<int>(maxLength: 16, nullable: false),
-                    AddressID = table.Column<int>(nullable: true),
-                    PaymentCardID = table.Column<string>(nullable: true)
+                    AddressID = table.Column<int>(nullable: false),
+                    PaymentCardID = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -74,13 +237,13 @@ namespace SofTechCore21MVC.Data.Migrations
                         column: x => x.AddressID,
                         principalTable: "Address",
                         principalColumn: "AddressID",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Customer_PaymentCard_PaymentCardID",
                         column: x => x.PaymentCardID,
                         principalTable: "PaymentCard",
                         principalColumn: "PaymentCardID",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -148,7 +311,7 @@ namespace SofTechCore21MVC.Data.Migrations
                     CustomerID = table.Column<int>(nullable: false),
                     OrderDate = table.Column<DateTime>(nullable: false),
                     DeliveryDate = table.Column<DateTime>(nullable: false),
-                    Status = table.Column<int>(nullable: false),
+                    Status = table.Column<int>(maxLength: 50, nullable: false),
                     Postage = table.Column<decimal>(nullable: false)
                 },
                 constraints: table =>
@@ -163,7 +326,7 @@ namespace SofTechCore21MVC.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "OrderItem",
+                name: "Orderitem",
                 columns: table => new
                 {
                     OrderItemID = table.Column<int>(nullable: false)
@@ -175,15 +338,15 @@ namespace SofTechCore21MVC.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_OrderItem", x => x.OrderItemID);
+                    table.PrimaryKey("PK_Orderitem", x => x.OrderItemID);
                     table.ForeignKey(
-                        name: "FK_OrderItem_Garment_GarmentID",
+                        name: "FK_Orderitem_Garment_GarmentID",
                         column: x => x.GarmentID,
                         principalTable: "Garment",
                         principalColumn: "GarmentID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_OrderItem_ShoppingCart_ShoppingCartID",
+                        name: "FK_Orderitem_ShoppingCart_ShoppingCartID",
                         column: x => x.ShoppingCartID,
                         principalTable: "ShoppingCart",
                         principalColumn: "ShoppingCartID",
@@ -197,7 +360,7 @@ namespace SofTechCore21MVC.Data.Migrations
                     ComplaintID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     OrderItemID = table.Column<int>(nullable: false),
-                    Statement = table.Column<string>(nullable: true),
+                    Statement = table.Column<string>(maxLength: 4000, nullable: false),
                     ContainsPicture = table.Column<bool>(nullable: false),
                     ComplaintRecieved = table.Column<DateTime>(nullable: false),
                     CustomerID = table.Column<int>(nullable: true)
@@ -212,12 +375,51 @@ namespace SofTechCore21MVC.Data.Migrations
                         principalColumn: "CustomerID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Complaint_OrderItem_OrderItemID",
+                        name: "FK_Complaint_Orderitem_OrderItemID",
                         column: x => x.OrderItemID,
-                        principalTable: "OrderItem",
+                        principalTable: "Orderitem",
                         principalColumn: "OrderItemID",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AspNetRoleClaims_RoleId",
+                table: "AspNetRoleClaims",
+                column: "RoleId");
+
+            migrationBuilder.CreateIndex(
+                name: "RoleNameIndex",
+                table: "AspNetRoles",
+                column: "NormalizedName",
+                unique: true,
+                filter: "[NormalizedName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AspNetUserClaims_UserId",
+                table: "AspNetUserClaims",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AspNetUserLogins_UserId",
+                table: "AspNetUserLogins",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AspNetUserRoles_RoleId",
+                table: "AspNetUserRoles",
+                column: "RoleId");
+
+            migrationBuilder.CreateIndex(
+                name: "EmailIndex",
+                table: "AspNetUsers",
+                column: "NormalizedEmail");
+
+            migrationBuilder.CreateIndex(
+                name: "UserNameIndex",
+                table: "AspNetUsers",
+                column: "NormalizedUserName",
+                unique: true,
+                filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Complaint_CustomerID",
@@ -250,13 +452,13 @@ namespace SofTechCore21MVC.Data.Migrations
                 column: "GarmentID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_OrderItem_GarmentID",
-                table: "OrderItem",
+                name: "IX_Orderitem_GarmentID",
+                table: "Orderitem",
                 column: "GarmentID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_OrderItem_ShoppingCartID",
-                table: "OrderItem",
+                name: "IX_Orderitem_ShoppingCartID",
+                table: "Orderitem",
                 column: "ShoppingCartID");
 
             migrationBuilder.CreateIndex(
@@ -278,6 +480,21 @@ namespace SofTechCore21MVC.Data.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "AspNetRoleClaims");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUserClaims");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUserLogins");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUserRoles");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
                 name: "Complaint");
 
             migrationBuilder.DropTable(
@@ -287,7 +504,13 @@ namespace SofTechCore21MVC.Data.Migrations
                 name: "Review");
 
             migrationBuilder.DropTable(
-                name: "OrderItem");
+                name: "AspNetRoles");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Orderitem");
 
             migrationBuilder.DropTable(
                 name: "Garment");
@@ -300,6 +523,9 @@ namespace SofTechCore21MVC.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "Address");
+
+            migrationBuilder.DropTable(
+                name: "PaymentCard");
         }
     }
 }

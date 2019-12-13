@@ -9,8 +9,7 @@ namespace SofTechCore21MVC.Models
     /// </summary>
     public class PaymentCard
     {
-        [Key]
-        public string PaymentCardID { get; set; }
+        public int PaymentCardID { get; set; }
         
         public CardType CardType { get; set; }
         

@@ -9,8 +9,6 @@ namespace SofTechCore21MVC.Models
     /// </summary>
     public class OrderItem
     {
-       
-        [Key]
         public int OrderItemID { get; set; }
 
         [Required, DisplayName("Garment")]

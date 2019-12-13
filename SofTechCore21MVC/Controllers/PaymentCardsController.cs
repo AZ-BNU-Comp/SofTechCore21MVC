@@ -26,7 +26,7 @@ namespace SofTechCore21MVC.Controllers
         }
 
         // GET: PaymentCards/Details/5
-        public async Task<IActionResult> Details(string id)
+        public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
             {
@@ -66,7 +66,7 @@ namespace SofTechCore21MVC.Controllers
         }
 
         // GET: PaymentCards/Edit/5
-        public async Task<IActionResult> Edit(string id)
+        public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
             {
@@ -86,7 +86,7 @@ namespace SofTechCore21MVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("PaymentCardID,CardType,CardName,CardNumber,ExpiryMonth,ExpiryYear,SecurityNumber")] PaymentCard paymentCard)
+        public async Task<IActionResult> Edit(int id, [Bind("PaymentCardID,CardType,CardName,CardNumber,ExpiryMonth,ExpiryYear,SecurityNumber")] PaymentCard paymentCard)
         {
             if (id != paymentCard.PaymentCardID)
             {
@@ -117,7 +117,7 @@ namespace SofTechCore21MVC.Controllers
         }
 
         // GET: PaymentCards/Delete/5
-        public async Task<IActionResult> Delete(string id)
+        public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
             {
@@ -137,7 +137,7 @@ namespace SofTechCore21MVC.Controllers
         // POST: PaymentCards/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(string id)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var paymentCard = await _context.PaymentCard.FindAsync(id);
             _context.PaymentCard.Remove(paymentCard);
@@ -145,7 +145,7 @@ namespace SofTechCore21MVC.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool PaymentCardExists(string id)
+        private bool PaymentCardExists(int id)
         {
             return _context.PaymentCard.Any(e => e.PaymentCardID == id);
         }

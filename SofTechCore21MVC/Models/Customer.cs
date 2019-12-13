@@ -10,7 +10,6 @@ namespace SofTechCore21MVC.Models
     /// </summary>
     public class Customer
     {
-        [Key]
         public int CustomerID { get; set; }
         
         [StringLength(50)]
@@ -34,6 +33,8 @@ namespace SofTechCore21MVC.Models
 
         [Required, StringLength(16, ErrorMessage = "Please enter a valid UK contact number")]
         public PhoneNumber PhoneNumber { get; set; }
+        public int AddressID { get; set; }
+        public int PaymentCardID { get; set; }
 
         // For simplicity use a single address
         public virtual Address Address { get; set; }

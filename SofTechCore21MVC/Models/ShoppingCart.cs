@@ -10,8 +10,6 @@ namespace SofTechCore21MVC.Models
     /// </summary>
     public class ShoppingCart
     {
-        [Key]
-
         public int ShoppingCartID { get; set; }
 
         [Required]

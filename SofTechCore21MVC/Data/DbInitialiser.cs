@@ -16,13 +16,149 @@ namespace SofTechCore21MVC.Data
         {
             SeedPaymentCards(context);
             SeedAddresses(context);
-            SeedOrderItems(context);
-            
+            SeedCustomer(context);
+            //SeedOrderItems(context);
+
+
+        }
+
+        private static void SeedCustomer(ApplicationDbContext context)
+        {
+            if (context.Customer.Any())
+            {
+                return;   // DB has been seeded
+            }
+
+            var customers = new Customer[]
+            {
+                new Customer
+                {
+                    FirstName = "Carson",
+                    Surname = "Alexander",
+                    BirthDate = new DateTime(1999, 5, 10),
+                    Email = "carson@gmail.com",
+                    Gender = Gender.Male,
+                    PhoneNumber = PhoneNumber.Mobile,
+                    AddressID = 1,
+                    PaymentCardID = 1
+                },
+                new Customer
+                {
+                    FirstName = "Oliver",
+                    Surname = "Beatles",
+                    BirthDate = new DateTime(1994, 9, 15),
+                    Email = "oliver@gmail.com",
+                    Gender = Gender.Male,
+                    PhoneNumber = PhoneNumber.Mobile,
+                    AddressID = 2,
+                    PaymentCardID = 2
+                },
+                new Customer
+                {
+                    FirstName = "Jack",
+                    Surname = "Charles",
+                    BirthDate = new DateTime(2000, 1, 16),
+                    Email = "jack@gmail.com",
+                    Gender = Gender.Male,
+                    PhoneNumber = PhoneNumber.Mobile,
+                    AddressID = 3,
+                    PaymentCardID = 3
+                },
+                new Customer
+                {
+                    FirstName = "Diana",
+                    Surname = "Dell",
+                    BirthDate = new DateTime(1990, 2, 17),
+                    Email = "diana@gmail.com",
+                    Gender = Gender.Female,
+                    PhoneNumber = PhoneNumber.Mobile,
+                    AddressID = 4,
+                    PaymentCardID = 4
+                },
+                new Customer
+                {
+                    FirstName = "Einstein",
+                    Surname = "Eagle",
+                    BirthDate = new DateTime(1989, 7, 18),
+                    Email = "einstein@gmail.com",
+                    Gender = Gender.Male,
+                    PhoneNumber = PhoneNumber.Mobile,
+                    AddressID = 5,
+                    PaymentCardID = 5
+                },
+                new Customer
+                {
+                    FirstName = "Fallon",
+                    Surname = "Fox",
+                    BirthDate = new DateTime(1980, 12, 19),
+                    Email = "fallon@gmail.com",
+                    Gender = Gender.Male,
+                    PhoneNumber = PhoneNumber.Mobile,
+                    AddressID = 6,
+                    PaymentCardID = 6
+                },
+                new Customer
+                {
+                    FirstName = "George",
+                    Surname = "Gales",
+                    BirthDate = new DateTime(1981, 3, 20),
+                    Email = "george@gmail.com",
+                    Gender = Gender.Male,
+                    PhoneNumber = PhoneNumber.Mobile,
+                    AddressID = 7,
+                    PaymentCardID = 7
+                },
+                new Customer
+                {
+                    FirstName = "Harry",
+                    Surname = "Potter",
+                    BirthDate = new DateTime(1982, 4, 21),
+                    Email = "harry@gmail.com",
+                    Gender = Gender.Male,
+                    PhoneNumber = PhoneNumber.Mobile,
+                    AddressID = 8,
+                    PaymentCardID = 8
+                },
+                new Customer
+                {
+                    FirstName = "Ian",
+                    Surname = "Jones",
+                    BirthDate = new DateTime(1983, 6, 22),
+                    Email = "ian@gmail.com",
+                    Gender = Gender.Male,
+                    PhoneNumber = PhoneNumber.Mobile,
+                    AddressID = 9,
+                    PaymentCardID = 9
+                },
+                new Customer
+                {
+                    FirstName = "Liam",
+                    Surname = "Carrington",
+                    BirthDate = new DateTime(1985, 11, 23),
+                    Email = "liam@gmail.com",
+                    Gender = Gender.Male,
+                    PhoneNumber = PhoneNumber.Mobile,
+                    AddressID = 10,
+                    PaymentCardID = 10
+                },
+            };
+
+            foreach (Customer c in customers)
+            {
+                context.Customer.Add(c);
+            }
+
+            context.SaveChanges();
         }
 
         private static void SeedAddresses(ApplicationDbContext context)
         {
-            var addresses = new Address[]
+                if (context.Address.Any())
+                {
+                    return;   // DB has been seeded
+                }
+
+                var addresses = new Address[]
             {
                 new Address
                 {
@@ -137,39 +273,93 @@ namespace SofTechCore21MVC.Data
                 //10
                 new PaymentCard
                 {
-                    CardName = "Joe Blogs",
-                    CardNumber = "1234 5678 9101 1213",
+                    CardName = "Carson Alexander",
+                    CardNumber = "4462 9106 4126 2228",
                     CardType = CardType.Debit,
                     ExpiryMonth = 1,
+                    ExpiryYear = 2022,
+                    SecurityNumber = 121
+                },
+                new PaymentCard
+                {
+                    CardName = "Oliver Beatles",
+                    CardNumber = "4462 9106 4126 2229",
+                    CardType = CardType.Debit,
+                    ExpiryMonth = 2,
+                    ExpiryYear = 2022,
+                    SecurityNumber = 122
+                },
+                new PaymentCard
+                {
+                    CardName = "Jack Charles",
+                    CardNumber = "4462 9106 4126 2230",
+                    CardType = CardType.Debit,
+                    ExpiryMonth = 3,
                     ExpiryYear = 2022,
                     SecurityNumber = 123
                 },
                 new PaymentCard
                 {
-                    CardName = "Josephin Blogs",
-                    CardNumber = "5987 6804 9101 1213",
+                    CardName = "Diana Dell",
+                    CardNumber = "4462 9106 4126 2231",
                     CardType = CardType.Debit,
-                    ExpiryMonth = 2,
+                    ExpiryMonth = 4,
                     ExpiryYear = 2022,
                     SecurityNumber = 124
                 },
                 new PaymentCard
                 {
-                    CardName = "Joe Blogs",
-                    CardNumber = "1234 5678 9101 1213",
+                    CardName = "Einstein Eagle",
+                    CardNumber = "4462 9106 4126 2232",
                     CardType = CardType.Debit,
-                    ExpiryMonth = 1,
+                    ExpiryMonth = 5,
                     ExpiryYear = 2022,
-                    SecurityNumber = 123
+                    SecurityNumber = 125
                 },
                 new PaymentCard
                 {
-                    CardName = "Josephin Blogs",
-                    CardNumber = "5987 6804 9101 1213",
+                    CardName = "Fallon Fox",
+                    CardNumber = "4462 9106 4126 2233",
                     CardType = CardType.Debit,
-                    ExpiryMonth = 2,
+                    ExpiryMonth = 6,
                     ExpiryYear = 2022,
-                    SecurityNumber = 124
+                    SecurityNumber = 126
+                },
+                new PaymentCard
+                {
+                    CardName = "George Gales",
+                    CardNumber = "5253 0315 2454 9330",
+                    CardType = CardType.Credit,
+                    ExpiryMonth = 8,
+                    ExpiryYear = 2023,
+                    SecurityNumber = 321
+                },
+                new PaymentCard
+                {
+                    CardName = "Harry Potter",
+                    CardNumber = "5253 0315 2454 9331",
+                    CardType = CardType.Credit,
+                    ExpiryMonth = 9,
+                    ExpiryYear = 2023,
+                    SecurityNumber = 320
+                },
+                new PaymentCard
+                {
+                    CardName = "Ian Jones",
+                    CardNumber = "4462 9106 4126 2234",
+                    CardType = CardType.Debit,
+                    ExpiryMonth = 7,
+                    ExpiryYear = 2022,
+                    SecurityNumber = 127
+                },
+                new PaymentCard
+                {
+                    CardName = "Liam Carrington",
+                    CardNumber = "4462 9106 4126 2235",
+                    CardType = CardType.Debit,
+                    ExpiryMonth = 8,
+                    ExpiryYear = 2022,
+                    SecurityNumber = 128
                 }
             };
 
@@ -180,16 +370,18 @@ namespace SofTechCore21MVC.Data
 
             context.SaveChanges();
         }
-        private static void SeedOrderItems(ApplicationDbContext context)
-        {
+    }
+}
+    //    private static void SeedOrderItems(ApplicationDbContext context)
+    //    {
            
-                {
+    //            {
                 
-                context.Orderitem.Add(p))
+    //            context.Orderitem.Add(p));
 
 
                 
-                }
+    //            };
 
             
 
@@ -200,5 +392,5 @@ namespace SofTechCore21MVC.Data
 
         
             
-    }
+    //}
 

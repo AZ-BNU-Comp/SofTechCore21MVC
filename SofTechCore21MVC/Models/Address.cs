@@ -12,7 +12,6 @@ namespace SofTechCore21MVC.Models
     /// </summary>
     public class Address
     {
-        [Key]
         public int AddressID { get; set; }
         
         //public int CustomerID { get; set; }
