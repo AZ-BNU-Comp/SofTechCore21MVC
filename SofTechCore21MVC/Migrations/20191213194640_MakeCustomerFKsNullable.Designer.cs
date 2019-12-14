@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SofTechCore21MVC.Data;
 
 namespace SofTechCore21MVC.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20191213194640_MakeCustomerFKsNullable")]
+    partial class MakeCustomerFKsNullable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -264,15 +266,12 @@ namespace SofTechCore21MVC.Migrations
 
                     b.Property<int?>("PaymentCardID");
 
-                    b.Property<int>("PhoneNumber");
+                    b.Property<int>("PhoneNumber")
+                        .HasMaxLength(16);
 
                     b.Property<string>("Surname")
                         .IsRequired()
                         .HasMaxLength(20);
-
-                    b.Property<string>("TelephoneNo")
-                        .IsRequired()
-                        .HasMaxLength(16);
 
                     b.Property<string>("UserID")
                         .HasMaxLength(50);
