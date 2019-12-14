@@ -26,8 +26,5 @@ namespace SofTechCore21MVC.Data
         public DbSet<Garment> Garment { get; set; }
 
         public DbSet<SofTechCore21MVC.Models.Review> Review { get; set; }
-             
-
-
     }
 }

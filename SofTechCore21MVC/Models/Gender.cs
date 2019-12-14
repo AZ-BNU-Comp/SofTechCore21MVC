@@ -7,6 +7,7 @@ namespace SofTechCore21MVC.Models
     /// </summary>
     public enum Gender
     {
+        Unknown,
         Female,
         Male
     }

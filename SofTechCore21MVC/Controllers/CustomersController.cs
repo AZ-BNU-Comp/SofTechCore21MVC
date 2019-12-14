@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SofTechCore21MVC.Data;
 using SofTechCore21MVC.Models;
@@ -20,9 +18,80 @@ namespace SofTechCore21MVC.Controllers
         }
 
         // GET: Customers
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder, 
+                                               string currentFilter, 
+                                               string searchString, 
+                                               int? pageNumber)
         {
-            return View(await _context.Customer.ToListAsync());
+            ViewData["CurrentSort"] = sortOrder;
+            ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewData["BirthDateSortParm"] = sortOrder == "BirthDate" ? "birthdate_desc" : "BirthDate";
+            ViewData["GenderSortParm"] = sortOrder == "Gender" ? "gender_desc" : "Gender";
+            ViewData["EmailSortParm"] = sortOrder == "Email" ? "email_desc" : "Email";
+            ViewData["PhoneNumberSortParm"] = sortOrder == "PhoneNumber" ? "phonenumber_desc" : "PhoneNumber";
+            ViewData["TelephoneNoSortParm"] = sortOrder == "TelephoneNo" ? "telephoneno_desc" : "TelephoneNo";
+
+            if (searchString != null)
+            {
+                pageNumber = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewData["CurrentFilter"] = searchString;
+
+            var customers = from c in _context.Customer select c;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                customers = customers.Where(c => c.Surname.Contains(searchString)
+                                       || c.FirstName.Contains(searchString));
+            }
+
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    customers = customers.OrderByDescending(c => c.Surname);
+                    break;
+                case "birthdate_desc":
+                    customers = customers.OrderByDescending(c => c.BirthDate);
+                    break;
+                case "BirthDate":
+                    customers = customers.OrderBy(c => c.BirthDate);
+                    break;
+                case "gender_desc":
+                    customers = customers.OrderByDescending(c => c.Gender);
+                    break;
+                case "Gender":
+                    customers = customers.OrderBy(c => c.Gender);
+                    break;
+                case "email_desc":
+                    customers = customers.OrderByDescending(c => c.Email);
+                    break;
+                case "Email":
+                    customers = customers.OrderBy(c => c.Email);
+                    break;
+                case "phonenumber_desc":
+                    customers = customers.OrderByDescending(c => c.PhoneNumber);
+                    break;
+                case "PhoneNumber":
+                    customers = customers.OrderBy(c => c.PhoneNumber);
+                    break;
+                case "telephoneno_desc":
+                    customers = customers.OrderByDescending(c => c.TelephoneNo);
+                    break;
+                case "TelephoneNo":
+                    customers = customers.OrderBy(c => c.TelephoneNo);
+                    break;
+                default:
+                    customers = customers.OrderBy(c => c.Surname);
+                    break;
+            }
+
+            int pageSize = 4;
+            return View(await PaginatedList<Customer>.CreateAsync(customers.AsNoTracking(), pageNumber ?? 1, pageSize));
         }
 
         // GET: Customers/Details/5
@@ -35,6 +104,7 @@ namespace SofTechCore21MVC.Controllers
 
             var customer = await _context.Customer
                 .FirstOrDefaultAsync(m => m.CustomerID == id);
+
             if (customer == null)
             {
                 return NotFound();
@@ -54,7 +124,7 @@ namespace SofTechCore21MVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CustomerID,UserID,FirstName,Surname,BirthDate,Gender,Email,PhoneNumber")] Customer customer)
+        public async Task<IActionResult> Create([Bind("CustomerID,UserID,FirstName,Surname,BirthDate,Gender,Email,PhoneNumber,TelephoneNo,AddressID,PaymentCardID")] Customer customer)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +156,7 @@ namespace SofTechCore21MVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CustomerID,UserID,FirstName,Surname,BirthDate,Gender,Email,PhoneNumber")] Customer customer)
+        public async Task<IActionResult> Edit(int id, [Bind("CustomerID,UserID,FirstName,Surname,BirthDate,Gender,Email,PhoneNumber,TelephoneNo,AddressID,PaymentCardID")] Customer customer)
         {
             if (id != customer.CustomerID)
             {

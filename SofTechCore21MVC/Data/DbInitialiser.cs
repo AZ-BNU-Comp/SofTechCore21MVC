@@ -38,7 +38,7 @@ namespace SofTechCore21MVC.Data
                     BirthDate = new DateTime(1999, 5, 10),
                     Email = "carson@gmail.com",
                     Gender = Gender.Male,
-                    PhoneNumber = PhoneNumber.Mobile,
+                    PhoneNumber = PhoneTypes.Mobile,
                     AddressID = 1,
                     PaymentCardID = 1
                 },
@@ -49,7 +49,7 @@ namespace SofTechCore21MVC.Data
                     BirthDate = new DateTime(1994, 9, 15),
                     Email = "oliver@gmail.com",
                     Gender = Gender.Male,
-                    PhoneNumber = PhoneNumber.Mobile,
+                    PhoneNumber = PhoneTypes.Mobile,
                     AddressID = 2,
                     PaymentCardID = 2
                 },
@@ -60,7 +60,7 @@ namespace SofTechCore21MVC.Data
                     BirthDate = new DateTime(2000, 1, 16),
                     Email = "jack@gmail.com",
                     Gender = Gender.Male,
-                    PhoneNumber = PhoneNumber.Mobile,
+                    PhoneNumber = PhoneTypes.Mobile,
                     AddressID = 3,
                     PaymentCardID = 3
                 },
@@ -71,7 +71,7 @@ namespace SofTechCore21MVC.Data
                     BirthDate = new DateTime(1990, 2, 17),
                     Email = "diana@gmail.com",
                     Gender = Gender.Female,
-                    PhoneNumber = PhoneNumber.Mobile,
+                    PhoneNumber = PhoneTypes.Mobile,
                     AddressID = 4,
                     PaymentCardID = 4
                 },
@@ -82,7 +82,7 @@ namespace SofTechCore21MVC.Data
                     BirthDate = new DateTime(1989, 7, 18),
                     Email = "einstein@gmail.com",
                     Gender = Gender.Male,
-                    PhoneNumber = PhoneNumber.Mobile,
+                    PhoneNumber = PhoneTypes.Mobile,
                     AddressID = 5,
                     PaymentCardID = 5
                 },
@@ -93,7 +93,7 @@ namespace SofTechCore21MVC.Data
                     BirthDate = new DateTime(1980, 12, 19),
                     Email = "fallon@gmail.com",
                     Gender = Gender.Male,
-                    PhoneNumber = PhoneNumber.Mobile,
+                    PhoneNumber = PhoneTypes.Mobile,
                     AddressID = 6,
                     PaymentCardID = 6
                 },
@@ -104,7 +104,7 @@ namespace SofTechCore21MVC.Data
                     BirthDate = new DateTime(1981, 3, 20),
                     Email = "george@gmail.com",
                     Gender = Gender.Male,
-                    PhoneNumber = PhoneNumber.Mobile,
+                    PhoneNumber = PhoneTypes.Mobile,
                     AddressID = 7,
                     PaymentCardID = 7
                 },
@@ -115,7 +115,7 @@ namespace SofTechCore21MVC.Data
                     BirthDate = new DateTime(1982, 4, 21),
                     Email = "harry@gmail.com",
                     Gender = Gender.Male,
-                    PhoneNumber = PhoneNumber.Mobile,
+                    PhoneNumber = PhoneTypes.Mobile,
                     AddressID = 8,
                     PaymentCardID = 8
                 },
@@ -126,7 +126,7 @@ namespace SofTechCore21MVC.Data
                     BirthDate = new DateTime(1983, 6, 22),
                     Email = "ian@gmail.com",
                     Gender = Gender.Male,
-                    PhoneNumber = PhoneNumber.Mobile,
+                    PhoneNumber = PhoneTypes.Mobile,
                     AddressID = 9,
                     PaymentCardID = 9
                 },
@@ -137,7 +137,7 @@ namespace SofTechCore21MVC.Data
                     BirthDate = new DateTime(1985, 11, 23),
                     Email = "liam@gmail.com",
                     Gender = Gender.Male,
-                    PhoneNumber = PhoneNumber.Mobile,
+                    PhoneNumber = PhoneTypes.Mobile,
                     AddressID = 10,
                     PaymentCardID = 10
                 },
@@ -270,7 +270,6 @@ namespace SofTechCore21MVC.Data
 
             var paymentCards = new PaymentCard[]
             {
-                //10
                 new PaymentCard
                 {
                     CardName = "Carson Alexander",

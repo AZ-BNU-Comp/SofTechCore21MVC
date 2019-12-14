@@ -5,7 +5,8 @@ using System.ComponentModel.DataAnnotations;
 namespace SofTechCore21MVC.Models
 {
     /// <summary>
-    /// Ana Zorro
+    /// This model represents the PaymentCard details of a Customer of the SofTech website.
+    /// Author: Ana Lucia Petinga Zorro
     /// </summary>
     public class PaymentCard
     {
@@ -13,20 +14,25 @@ namespace SofTechCore21MVC.Models
         
         public CardType CardType { get; set; }
         
-        [Required, StringLength(30)]
+        [Required]
+        [StringLength(30)]
         public string CardName { get; set; }
         
         // Using regular expressions would be better (#### #### #### ####)
-        [Required, StringLength(20, MinimumLength = 20)]
+        [Required]
+        [StringLength(20, MinimumLength = 20)]
         public string CardNumber { get; set; }
         
-        [Required, Range(1,12)]
+        [Required]
+        [Range(1,12)]
         public int ExpiryMonth { get; set; }
 
-        [Required, Range(2019, 2030)]
+        [Required]
+        [Range(2019, 2030)]
         public int ExpiryYear { get; set; }
 
-        [Required, StringLength(3, ErrorMessage = "Please enter 3 digits",MinimumLength =3)]
+        [Required]
+        [StringLength(3, ErrorMessage = "Please enter 3 digits",MinimumLength =3)]
         public int SecurityNumber { get; set; }
     }
 }
