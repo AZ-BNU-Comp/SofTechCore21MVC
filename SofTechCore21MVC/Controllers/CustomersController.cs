@@ -10,6 +10,8 @@ namespace SofTechCore21MVC.Controllers
 {
     public class CustomersController : Controller
     {
+        public const string BIRTH_DATE_SORT_PARAM = "BirthDateSortParm";
+
         private readonly ApplicationDbContext _context;
 
         public CustomersController(ApplicationDbContext context)
@@ -25,7 +27,7 @@ namespace SofTechCore21MVC.Controllers
         {
             ViewData["CurrentSort"] = sortOrder;
             ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
-            ViewData["BirthDateSortParm"] = sortOrder == "BirthDate" ? "birthdate_desc" : "BirthDate";
+            ViewData[BIRTH_DATE_SORT_PARAM] = sortOrder == "BirthDate" ? "birthdate_desc" : "BirthDate";
             ViewData["GenderSortParm"] = sortOrder == "Gender" ? "gender_desc" : "Gender";
             ViewData["EmailSortParm"] = sortOrder == "Email" ? "email_desc" : "Email";
             ViewData["PhoneNumberSortParm"] = sortOrder == "PhoneNumber" ? "phonenumber_desc" : "PhoneNumber";

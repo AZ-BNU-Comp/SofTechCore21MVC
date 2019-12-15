@@ -31,7 +31,7 @@
                 <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Surname</a>
             </th>
             <th>
-                <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Birth Date</a>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData[SofTechCore21MVC.Controllers.CustomersController.BIRTH_DATE_SORT_PARAM]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Birth Date</a>
             </th>
             <th>
                 <a asp-action="Index" asp-route-sortOrder="@ViewData["GenderSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Gender</a>
