@@ -20,7 +20,7 @@ namespace SofTechCore21MVC.Models
         
         // Using regular expressions would be better (#### #### #### ####)
         [Required]
-        [StringLength(20, MinimumLength = 20)]
+        [StringLength(20, MinimumLength = 16)]
         public string CardNumber { get; set; }
         
         [Required]
@@ -31,8 +31,7 @@ namespace SofTechCore21MVC.Models
         [Range(2019, 2030)]
         public int ExpiryYear { get; set; }
 
-        [Required]
-        [StringLength(3, ErrorMessage = "Please enter 3 digits",MinimumLength =3)]
+        [Required, Range(100, 999)]
         public int SecurityNumber { get; set; }
     }
 }
