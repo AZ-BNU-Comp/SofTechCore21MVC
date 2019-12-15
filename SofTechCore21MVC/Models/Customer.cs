@@ -48,9 +48,9 @@ namespace SofTechCore21MVC.Models
         [DisplayName("Phone Number")]
         public string TelephoneNo { get; set; }
 
-        public int AddressID { get; set; }
+        public Nullable<int> AddressID { get; set; }
 
-        public int PaymentCardID { get; set; }
+        public Nullable<int> PaymentCardID { get; set; }
         
         // For simplicity use a single address
         public virtual Address Address { get; set; }

@@ -248,7 +248,7 @@ namespace SofTechCore21MVC.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("AddressID");
+                    b.Property<int>("AddressID");
 
                     b.Property<DateTime>("BirthDate");
 
@@ -262,7 +262,7 @@ namespace SofTechCore21MVC.Migrations
 
                     b.Property<int>("Gender");
 
-                    b.Property<int?>("PaymentCardID");
+                    b.Property<int>("PaymentCardID");
 
                     b.Property<int>("PhoneNumber");
 
@@ -513,11 +513,13 @@ namespace SofTechCore21MVC.Migrations
                 {
                     b.HasOne("SofTechCore21MVC.Models.Address", "Address")
                         .WithMany()
-                        .HasForeignKey("AddressID");
+                        .HasForeignKey("AddressID")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("SofTechCore21MVC.Models.PaymentCard", "PaymentCard")
                         .WithMany()
-                        .HasForeignKey("PaymentCardID");
+                        .HasForeignKey("PaymentCardID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("SofTechCore21MVC.Models.Favourite", b =>
