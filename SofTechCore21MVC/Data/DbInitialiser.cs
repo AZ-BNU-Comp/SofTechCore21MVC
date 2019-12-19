@@ -39,6 +39,7 @@ namespace SofTechCore21MVC.Data
                     Email = "carson@gmail.com",
                     Gender = Gender.Male,
                     PhoneNumber = PhoneTypes.Mobile,
+                    TelephoneNo = "07654 789 456",
                     AddressID = 1,
                     PaymentCardID = 1
                 },
@@ -50,6 +51,7 @@ namespace SofTechCore21MVC.Data
                     Email = "oliver@gmail.com",
                     Gender = Gender.Male,
                     PhoneNumber = PhoneTypes.Mobile,
+                    TelephoneNo = "07654 123 123",
                     AddressID = 2,
                     PaymentCardID = 2
                 },
@@ -61,6 +63,7 @@ namespace SofTechCore21MVC.Data
                     Email = "jack@gmail.com",
                     Gender = Gender.Male,
                     PhoneNumber = PhoneTypes.Mobile,
+                    TelephoneNo = "01296 666 456",
                     AddressID = 3,
                     PaymentCardID = 3
                 },
@@ -72,6 +75,7 @@ namespace SofTechCore21MVC.Data
                     Email = "diana@gmail.com",
                     Gender = Gender.Female,
                     PhoneNumber = PhoneTypes.Mobile,
+                    TelephoneNo = "07666 123 456",
                     AddressID = 4,
                     PaymentCardID = 4
                 },
@@ -83,6 +87,7 @@ namespace SofTechCore21MVC.Data
                     Email = "einstein@gmail.com",
                     Gender = Gender.Male,
                     PhoneNumber = PhoneTypes.Mobile,
+                    TelephoneNo = "07688 123 456",
                     AddressID = 5,
                     PaymentCardID = 5
                 },
@@ -94,6 +99,7 @@ namespace SofTechCore21MVC.Data
                     Email = "fallon@gmail.com",
                     Gender = Gender.Male,
                     PhoneNumber = PhoneTypes.Mobile,
+                    TelephoneNo = "07654 109 456",
                     AddressID = 6,
                     PaymentCardID = 6
                 },
@@ -105,6 +111,7 @@ namespace SofTechCore21MVC.Data
                     Email = "george@gmail.com",
                     Gender = Gender.Male,
                     PhoneNumber = PhoneTypes.Mobile,
+                    TelephoneNo = "07644 123 456",
                     AddressID = 7,
                     PaymentCardID = 7
                 },
@@ -116,6 +123,7 @@ namespace SofTechCore21MVC.Data
                     Email = "harry@gmail.com",
                     Gender = Gender.Male,
                     PhoneNumber = PhoneTypes.Mobile,
+                    TelephoneNo = "07677 123 456",
                     AddressID = 8,
                     PaymentCardID = 8
                 },
@@ -127,6 +135,7 @@ namespace SofTechCore21MVC.Data
                     Email = "ian@gmail.com",
                     Gender = Gender.Male,
                     PhoneNumber = PhoneTypes.Mobile,
+                    TelephoneNo = "07654 888 456",
                     AddressID = 9,
                     PaymentCardID = 9
                 },
@@ -137,7 +146,8 @@ namespace SofTechCore21MVC.Data
                     BirthDate = new DateTime(1985, 11, 23),
                     Email = "liam@gmail.com",
                     Gender = Gender.Male,
-                    PhoneNumber = PhoneTypes.Mobile,
+                    PhoneNumber = PhoneTypes.Landline,
+                    TelephoneNo = "01296 123 456",
                     AddressID = 10,
                     PaymentCardID = 10
                 },
