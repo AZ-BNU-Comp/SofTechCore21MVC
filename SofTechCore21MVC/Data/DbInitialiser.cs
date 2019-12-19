@@ -648,38 +648,38 @@ namespace SofTechCore21MVC.Data
                 new OrderItem
                 {
                     Quantity = 2,
-                    PurchasePrice = 100,
+                    PurchasePrice = 10,
                     GarmentID = 1,
                     ShoppingCartID = 1,
                 },
                     new OrderItem
                 {
                     Quantity = 3,
-                    PurchasePrice = 20,
+                    PurchasePrice = 15,
                     GarmentID = 2,
                     ShoppingCartID = 2,
                 },    new OrderItem
                 {
                     Quantity = 4,
-                    PurchasePrice = 40,
+                    PurchasePrice = 20,
                     GarmentID = 3,
                     ShoppingCartID = 3,
                 },    new OrderItem
                 {
                     Quantity = 5,
-                    PurchasePrice = 50,
+                    PurchasePrice = 25,
                     GarmentID = 4,
                     ShoppingCartID = 4,
                 },    new OrderItem
                 {
                     Quantity = 6,
-                    PurchasePrice = 60,
+                    PurchasePrice = 30,
                     GarmentID = 5,
                     ShoppingCartID = 5,
                 },    new OrderItem
                 {
                     Quantity = 7,
-                    PurchasePrice = 120,
+                    PurchasePrice = 35,
                     GarmentID = 6,
                     ShoppingCartID = 4,
                 },    new OrderItem
@@ -691,145 +691,145 @@ namespace SofTechCore21MVC.Data
                 },    new OrderItem
                 {
                     Quantity = 9,
-                    PurchasePrice = 70,
+                    PurchasePrice = 45,
                     GarmentID = 8,
                     ShoppingCartID = 5,
                 },    new OrderItem
                 {
                     Quantity = 10,
-                    PurchasePrice = 80,
+                    PurchasePrice = 50,
                     GarmentID = 9,
                     ShoppingCartID = 6,
                 },    new OrderItem
                 {
                     Quantity = 11,
-                    PurchasePrice = 90,
+                    PurchasePrice = 55,
                     GarmentID = 10,
                     ShoppingCartID = 7,
                 },    new OrderItem
                 {
                     Quantity = 12,
-                    PurchasePrice = 44,
+                    PurchasePrice = 60,
                     GarmentID = 11,
                     ShoppingCartID = 8,
                 },    new OrderItem
                 {
                     Quantity = 13,
-                    PurchasePrice = 67,
+                    PurchasePrice = 65,
                     GarmentID = 12,
                     ShoppingCartID = 9,
                 },    new OrderItem
                 {
                     Quantity = 14,
-                    PurchasePrice = 76,
+                    PurchasePrice = 70,
                     GarmentID = 13,
                     ShoppingCartID = 10,
                 },    new OrderItem
                 {
                     Quantity = 15,
-                    PurchasePrice = 100,
+                    PurchasePrice = 75,
                     GarmentID = 14,
                     ShoppingCartID = 11,
                 },    new OrderItem
                 {
                     Quantity = 16,
-                    PurchasePrice = 29,
+                    PurchasePrice = 80,
                     GarmentID = 15,
                     ShoppingCartID = 12,
                 },    new OrderItem
                 {
                     Quantity = 17,
-                    PurchasePrice = 30,
+                    PurchasePrice = 85,
                     GarmentID = 16,
                     ShoppingCartID = 13,
                 },    new OrderItem
                 {
                     Quantity = 18,
-                    PurchasePrice = 40,
+                    PurchasePrice = 90,
                     GarmentID = 17,
                     ShoppingCartID = 14,
                 },    new OrderItem
                 {
                     Quantity = 19,
-                    PurchasePrice = 84,
+                    PurchasePrice = 95,
                     GarmentID = 18,
                     ShoppingCartID = 15,
                 },    new OrderItem
                 {
                     Quantity = 20,
-                    PurchasePrice = 43,
+                    PurchasePrice = 100,
                     GarmentID = 19,
                     ShoppingCartID = 16,
                 },    new OrderItem
                 {
                     Quantity = 21,
-                    PurchasePrice = 34,
+                    PurchasePrice = 105,
                     GarmentID = 20,
                     ShoppingCartID = 17,
                 },    new OrderItem
                 {
                     Quantity = 22,
-                    PurchasePrice = 10,
+                    PurchasePrice = 110,
                     GarmentID = 21,
                     ShoppingCartID = 18,
                 },    new OrderItem
                 {
                     Quantity = 23,
-                    PurchasePrice = 99,
+                    PurchasePrice = 115,
                     GarmentID = 22,
                     ShoppingCartID = 19,
                 },    new OrderItem
                 {
                     Quantity = 24,
-                    PurchasePrice = 82,
+                    PurchasePrice = 120,
                     GarmentID = 21,
                     ShoppingCartID = 20,
                 },    new OrderItem
                 {
                     Quantity = 25,
-                    PurchasePrice = 23,
+                    PurchasePrice = 125,
                     GarmentID = 22,
                     ShoppingCartID = 21,
                 },    new OrderItem
                 {
                     Quantity = 26,
-                    PurchasePrice = 44,
+                    PurchasePrice = 130,
                     GarmentID = 23,
                     ShoppingCartID = 22,
                 },    new OrderItem
                 {
                     Quantity = 27,
-                    PurchasePrice = 77,
+                    PurchasePrice = 135,
                     GarmentID = 24,
                     ShoppingCartID = 23,
                 },    new OrderItem
                 {
                     Quantity = 28,
-                    PurchasePrice = 88,
+                    PurchasePrice = 140,
                     GarmentID = 25,
                     ShoppingCartID = 24,
                 },    new OrderItem
                 {
                     Quantity = 29,
-                    PurchasePrice = 9,
+                    PurchasePrice = 145,
                     GarmentID = 26,
                     ShoppingCartID = 25,
                 },    new OrderItem
                 {
                     Quantity = 30,
-                    PurchasePrice = 66,
+                    PurchasePrice = 150,
                     GarmentID = 27,
                     ShoppingCartID = 26,
                 },    new OrderItem
                 {
                     Quantity = 31,
-                    PurchasePrice = 11,
+                    PurchasePrice = 155,
                     GarmentID = 28,
                     ShoppingCartID = 27,
                 },    new OrderItem
                 {
                     Quantity = 32,
-                    PurchasePrice = 22,
+                    PurchasePrice = 160,
                     GarmentID = 29,
                     ShoppingCartID = 28,
                 },
