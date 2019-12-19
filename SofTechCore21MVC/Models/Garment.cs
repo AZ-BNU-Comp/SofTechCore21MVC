@@ -13,26 +13,38 @@ namespace SofTechCore21MVC.Models
     {
         public int GarmentID { get; set; }
 
-        [Required, StringLength(20), DisplayName("Garment Name")]
+        [Required] 
+        [StringLength(20)]
+        [DisplayName("Garment Name")]
         public string GarmentName { get; set; }
 
         public Gender Gender { get; set; }
 
-        [Required, StringLength(4000), DisplayName("Description")]
+        [Required]
+        [StringLength(4000)]
+        [DisplayName("Description")]
         [DataType(DataType.MultilineText)]
         public string Description { get; set; }
 
-        [Required, StringLength(100), DataType(DataType.Url), DisplayName("Image URL")]
+        [Required]
+        [StringLength(100)]
+        [DataType(DataType.Url)]
+        [DisplayName("Image URL")]
         public string ImageUrl { get; set; }
 
         public Colours Colour { get; set; }
 
         public Sizes Size { get; set; }
 
-        [Required, DisplayFormat(DataFormatString = "{0:C0}"), DataType(DataType.Currency)]
+        [Required]
+        [DisplayFormat(DataFormatString = "{0:C0}")]
+        [DataType(DataType.Currency)]
         public decimal Price { get; set; }
 
-        [Required, DisplayFormat(DataFormatString = "{0:C0}"), DataType(DataType.Currency), DisplayName("Offer Price")]
+        [Required]
+        [DisplayFormat(DataFormatString = "{0:C0}")]
+        [DataType(DataType.Currency)]
+        [DisplayName("Offer Price")]
         public decimal SpecialOfferPrice { get; set; }
 
         public bool IsAccessory { get; set; }

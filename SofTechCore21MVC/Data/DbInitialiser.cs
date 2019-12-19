@@ -379,6 +379,263 @@ namespace SofTechCore21MVC.Data
 
             context.SaveChanges();
         }
+        private static void SeedGarment(ApplicationDbContext context)
+        {
+            if (context.Garment.Any())
+            {
+                return;
+            }
+
+            var items = new Garment[]
+            {
+                new Garment
+                {
+                    Colour = Colours.Black,
+                    Department = Department.Business,
+                    Description = "Add a description here",
+                    GarmentID = 1,
+                    GarmentName = "Add name here",
+                    Gender = Gender.Male,
+                    Price = 9,
+                    Length = Length.Long,
+                    Size = Sizes.Large,
+                    Sleeves = Sleeves.Long
+                },
+                new Garment
+                {
+                    Colour = Colours.Grey,
+                    Department = Department.Mathematics,
+                    Description = "Add a description here",
+                    GarmentID = 2,
+                    GarmentName = "Add name here",
+                    Gender = Gender.Male,
+                    Price = 9,
+                    Length = Length.Long,
+                    Size = Sizes.Large,
+                    Sleeves = Sleeves.Long
+                },
+                new Garment
+                {
+                    Colour = Colours.White,
+                    Department = Department.Science,
+                    Description = "Add a description here",
+                    GarmentID = 3,
+                    GarmentName = "Add name here",
+                    Gender = Gender.Male,
+                    Price = 9,
+                    Length = Length.Long,
+                    Size = Sizes.Large,
+                    Sleeves = Sleeves.Long
+                },
+                new Garment
+                {
+                    Colour = Colours.NavyBlue,
+                    Department = Department.Computing,
+                    Description = "Add a description here",
+                    GarmentID = 4,
+                    GarmentName = "Add name here",
+                    Gender = Gender.Male,
+                    Price = 9,
+                    Length = Length.Long,
+                    Size = Sizes.Large,
+                    Sleeves = Sleeves.Long
+                },
+                new Garment
+                {
+                    Colour = Colours.Burgundy,
+                    Department = Department.Mathematics,
+                    Description = "Add a description here",
+                    GarmentID = 5,
+                    GarmentName = "Add name here",
+                    Gender = Gender.Male,
+                    Price = 9,
+                    Length = Length.Long,
+                    Size = Sizes.Large,
+                    Sleeves = Sleeves.Long
+                },
+                new Garment
+                {
+                    Colour = Colours.NavyBlue,
+                    Department = Department.Sports,
+                    Description = "Add a description here",
+                    GarmentID = 6,
+                    GarmentName = "Add name here",
+                    Gender = Gender.Male,
+                    Price = 9,
+                    Length = Length.Long,
+                    Size = Sizes.Large,
+                    Sleeves = Sleeves.Long
+                },
+                new Garment
+                {
+                    Colour = Colours.Black,
+                    Department = Department.Science,
+                    Description = "Add a description here",
+                    GarmentID = 7,
+                    GarmentName = "Add name here",
+                    Gender = Gender.Male,
+                    Price = 9,
+                    Length = Length.Long,
+                    Size = Sizes.Large,
+                    Sleeves = Sleeves.Long
+                },
+                new Garment
+                {
+                    Colour = Colours.White,
+                    Department = Department.Business,
+                    Description = "Add a description here",
+                    GarmentID = 8,
+                    GarmentName = "Add name here",
+                    Gender = Gender.Male,
+                    Price = 9,
+                    Length = Length.Long,
+                    Size = Sizes.Large,
+                    Sleeves = Sleeves.Long
+                },
+                new Garment
+                {
+                    Colour = Colours.Grey,
+                    Department = Department.Computing,
+                    Description = "Add a description here",
+                    GarmentID = 9,
+                    GarmentName = "Add name here",
+                    Gender = Gender.Male,
+                    Price = 9,
+                    Length = Length.Long,
+                    Size = Sizes.Large,
+                    Sleeves = Sleeves.Long
+                },
+                new Garment
+                {
+                    Colour = Colours.Black,
+                    Department = Department.Science,
+                    Description = "Add a description here",
+                    GarmentID = 10,
+                    GarmentName = "Add name here",
+                    Gender = Gender.Male,
+                    Price = 9,
+                    Length = Length.Long,
+                    Size = Sizes.Large,
+                    Sleeves = Sleeves.Long
+                }
+            };
+
+            foreach (Garment g in items)
+            {
+                context.Garment.Add(g);
+            };
+
+            context.SaveChanges();
+        }
+
+        private static void SeedShoppingCart(ApplicationDbContext context)
+        {
+            if (context.ShoppingCart.Any())
+            {
+                return;
+            }
+
+            var items = new ShoppingCart[]
+            {
+                new ShoppingCart
+                {
+                    DeliveryDate = new DateTime (2020, 3, 19),
+                    OrderDate = new DateTime (2020, 3, 17),
+                    Status = OrderStatus.Delivered,
+                    Postage = new Decimal (2.99),
+                    ShoppingCartID = 1,
+                    CustomerID = 1
+                },
+                new ShoppingCart
+                {
+                    DeliveryDate = new DateTime (2020, 8, 23),
+                    OrderDate = new DateTime (2020, 7, 8),
+                    Status = OrderStatus.Delivered,
+                    Postage = new Decimal (2.99),
+                    ShoppingCartID = 2,
+                    CustomerID = 2
+                },
+                new ShoppingCart
+                {
+                    DeliveryDate = new DateTime (2020, 9, 21),
+                    OrderDate = new DateTime (2020, 3, 14),
+                    Status = OrderStatus.Delivered,
+                    Postage = new Decimal (2.99),
+                    ShoppingCartID = 3,
+                    CustomerID = 3
+                },
+                new ShoppingCart
+                {
+                    DeliveryDate = new DateTime (2020, 5, 10),
+                    OrderDate = new DateTime (2020, 3, 17),
+                    Status = OrderStatus.Delivered,
+                    Postage = new Decimal (2.99),
+                    ShoppingCartID = 4,
+                    CustomerID = 4
+                },
+                new ShoppingCart
+                {
+                    DeliveryDate = new DateTime (2020, 8, 12),
+                    OrderDate = new DateTime (2020, 5, 16),
+                    Status = OrderStatus.Delivered,
+                    Postage = new Decimal (2.99),
+                    ShoppingCartID = 5,
+                    CustomerID = 5
+                },
+                new ShoppingCart
+                {
+                    DeliveryDate = new DateTime (2020, 16, 13),
+                    OrderDate = new DateTime (2020, 9, 12),
+                    Status = OrderStatus.Delivered,
+                    Postage = new Decimal (2.99),
+                    ShoppingCartID = 6,
+                    CustomerID = 6
+                },
+                new ShoppingCart
+                {
+                    DeliveryDate = new DateTime (2020, 8, 6),
+                    OrderDate = new DateTime (2020, 9, 14),
+                    Status = OrderStatus.Delivered,
+                    Postage = new Decimal (2.99),
+                    ShoppingCartID = 7,
+                    CustomerID = 7
+                },
+                new ShoppingCart
+                {
+                    DeliveryDate = new DateTime (2020, 5, 17),
+                    OrderDate = new DateTime (2020, 2, 14),
+                    Status = OrderStatus.Delivered,
+                    Postage = new Decimal (2.99),
+                    ShoppingCartID = 8,
+                    CustomerID = 8
+                },
+                new ShoppingCart
+                {
+                    DeliveryDate = new DateTime (2020, 2, 17),
+                    OrderDate = new DateTime (2020, 6, 19),
+                    Status = OrderStatus.Delivered,
+                    Postage = new Decimal (2.99),
+                    ShoppingCartID = 9,
+                    CustomerID = 9
+                },
+                new ShoppingCart
+                {
+                    DeliveryDate = new DateTime (2020, 3,19),
+                    OrderDate = new DateTime (2020, 2, 17),
+                    Status = OrderStatus.Delivered,
+                    Postage = new Decimal (2.99),
+                    ShoppingCartID = 10,
+                    CustomerID = 10
+                }
+            };
+
+            foreach (ShoppingCart s in items)
+            {
+                context.ShoppingCart.Add(s);
+            };
+
+            context.SaveChanges();
+        }
         private static void SeedOrderItems(ApplicationDbContext context)
         {
             if (context.Orderitem.Any())
