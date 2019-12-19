@@ -379,27 +379,33 @@ namespace SofTechCore21MVC.Data
 
             context.SaveChanges();
         }
-    }
-}
-    //    private static void SeedOrderItems(ApplicationDbContext context)
-    //    {
-           
-    //            {
-                
-    //            context.Orderitem.Add(p));
+        private static void SeedOrderItems(ApplicationDbContext context)
+        {
+            if (context.Orderitem.Any())
+            {
+                return;
+            }
 
+            var items = new OrderItem[]
+            {
+            new OrderItem
+            {
+                Quantity = 2,
+                PurchasePrice = 100,
+                GarmentID = 1,
+                ShoppingCartID = 1
+            }
 
-                
-    //            };
+            };
 
-            
+            foreach (OrderItem i in items)
+            {
+                context.Orderitem.Add(i);
+            };
 
+            context.SaveChanges();
+        }
 
-           
-
-            
-
-        
-            
-    //}
+    } // end class
+} // end namespace
 
