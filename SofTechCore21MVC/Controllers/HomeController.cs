@@ -46,9 +46,11 @@ namespace SofTechCore21MVC.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-
+       
         public IActionResult MyAccount()
         {
+            CustomerViewModel model = new CustomerViewModel();
+
             string user = User.Identity.Name;
 
             if (user == null)
@@ -64,7 +66,11 @@ namespace SofTechCore21MVC.Controllers
                 return NotFound();
             }
 
-            return View(customer);
+            model.Customer = customer;
+            var paymentCard = _context.PaymentCard.FirstOrDefault(p => p.PaymentCardID == customer.PaymentCardID);
+            model.PaymentCard = paymentCard;
+
+            return View(model);
         }
         public IActionResult Women()
         {

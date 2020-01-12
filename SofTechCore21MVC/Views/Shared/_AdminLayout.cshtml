@@ -32,11 +32,21 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Customers" asp-action="Index">Customers</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" asp-controller="Customers" asp-action="Index" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            Customers
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li><a asp-controller="Addresses" asp-action="Index">Address</a></li>
+                            <li><a asp-controller="PaymentCards" asp-action="Index">PaymentCards</a></li>
+                            <li><a asp-controller="Favourites" asp-action="Index">Favourites</a></li>
+                            <li><a asp-controller="Reviews" asp-action="Index">Reviews</a></li>
+                            <li><a asp-controller="Complaints" asp-action="Index">Complaints</a></li>
+                        </ul>
+                    </li>
                     <li><a asp-area="" asp-controller="Orders" asp-action="Index">Orders</a></li>
                     <li><a asp-area="" asp-controller="Garments" asp-action="Index">Garments</a></li>
-                    <li><a asp-area="" asp-controller="Reviews" asp-action="Index">Reviews</a></li>
-                    <li><a asp-area="" asp-controller="Complaints" asp-action="Index">Complaints</a></li>
                 </ul>
                 <partial name="_LoginPartial" />
             </div>
@@ -47,10 +57,7 @@
 
     <div class="container body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; 2019 - SofTechCore21MVC</p>
-        </footer>
+        <partial name="_Footer" />
     </div>
 
     <environment include="Development">
