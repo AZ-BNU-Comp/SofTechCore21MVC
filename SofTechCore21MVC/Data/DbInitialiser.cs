@@ -18,8 +18,7 @@ namespace SofTechCore21MVC.Data
             SeedAddresses(context);
             SeedCustomer(context);
             //SeedOrderItems(context);
-
-
+            SeedGarment(context);
         }
 
         private static void SeedCustomer(ApplicationDbContext context)
