@@ -392,130 +392,150 @@ namespace SofTechCore21MVC.Data
                     Colour = Colours.Black,
                     Department = Department.Business,
                     Description = "Add a description here",
-                    GarmentID = 1,
                     GarmentName = "Add name here",
                     Gender = Gender.Male,
                     Price = 9,
                     Length = Length.Long,
                     Size = Sizes.Large,
-                    Sleeves = Sleeves.Long
+                    Sleeves = Sleeves.Long,
+                    ImageUrl = "Garment01.jpg",
+                    IsAccessory = false,
+                    SpecialOfferPrice = 0
                 },
                 new Garment
                 {
                     Colour = Colours.Grey,
                     Department = Department.Mathematics,
                     Description = "Add a description here",
-                    GarmentID = 2,
-                    GarmentName = "Add name here",
+                    GarmentName = "Garment 2",
                     Gender = Gender.Male,
                     Price = 9,
                     Length = Length.Long,
                     Size = Sizes.Large,
-                    Sleeves = Sleeves.Long
+                    Sleeves = Sleeves.Long,
+                    ImageUrl = "Garment02.jpg",
+                    IsAccessory = false,
+                    SpecialOfferPrice = 0
                 },
                 new Garment
                 {
                     Colour = Colours.White,
                     Department = Department.Science,
                     Description = "Add a description here",
-                    GarmentID = 3,
-                    GarmentName = "Add name here",
+                    GarmentName = "Garment 3",
                     Gender = Gender.Male,
                     Price = 9,
                     Length = Length.Long,
                     Size = Sizes.Large,
-                    Sleeves = Sleeves.Long
+                    Sleeves = Sleeves.Long,
+                    ImageUrl = "Garment03.jpg",
+                    IsAccessory = false,
+                    SpecialOfferPrice = 0
                 },
                 new Garment
                 {
                     Colour = Colours.NavyBlue,
                     Department = Department.Computing,
                     Description = "Add a description here",
-                    GarmentID = 4,
-                    GarmentName = "Add name here",
+                    GarmentName = "Garment 4",
                     Gender = Gender.Male,
                     Price = 9,
                     Length = Length.Long,
                     Size = Sizes.Large,
-                    Sleeves = Sleeves.Long
+                    Sleeves = Sleeves.Long,
+                    ImageUrl = "Garment04.jpg",
+                    IsAccessory = false,
+                    SpecialOfferPrice = 0
                 },
                 new Garment
                 {
                     Colour = Colours.Burgundy,
                     Department = Department.Mathematics,
                     Description = "Add a description here",
-                    GarmentID = 5,
-                    GarmentName = "Add name here",
+                    GarmentName = "Garment 5",
                     Gender = Gender.Male,
                     Price = 9,
                     Length = Length.Long,
                     Size = Sizes.Large,
-                    Sleeves = Sleeves.Long
+                    Sleeves = Sleeves.Long,
+                    ImageUrl = "Garment05.jpg",
+                    IsAccessory = false,
+                    SpecialOfferPrice = 0
                 },
                 new Garment
                 {
                     Colour = Colours.NavyBlue,
                     Department = Department.Sports,
                     Description = "Add a description here",
-                    GarmentID = 6,
-                    GarmentName = "Add name here",
+                    GarmentName = "Garment 6",
                     Gender = Gender.Male,
                     Price = 9,
                     Length = Length.Long,
                     Size = Sizes.Large,
-                    Sleeves = Sleeves.Long
+                    Sleeves = Sleeves.Long,
+                    ImageUrl = "Garment06.jpg",
+                    IsAccessory = false,
+                    SpecialOfferPrice = 0
                 },
                 new Garment
                 {
                     Colour = Colours.Black,
                     Department = Department.Science,
                     Description = "Add a description here",
-                    GarmentID = 7,
-                    GarmentName = "Add name here",
+                    GarmentName = "Garment 7",
                     Gender = Gender.Male,
                     Price = 9,
                     Length = Length.Long,
                     Size = Sizes.Large,
-                    Sleeves = Sleeves.Long
+                    Sleeves = Sleeves.Long,
+                    ImageUrl = "Garment07.jpg",
+                    IsAccessory = false,
+                    SpecialOfferPrice = 0
                 },
                 new Garment
                 {
                     Colour = Colours.White,
                     Department = Department.Business,
                     Description = "Add a description here",
-                    GarmentID = 8,
-                    GarmentName = "Add name here",
+                    GarmentName = "Garment 8",
                     Gender = Gender.Male,
                     Price = 9,
                     Length = Length.Long,
                     Size = Sizes.Large,
-                    Sleeves = Sleeves.Long
+                    Sleeves = Sleeves.Long,
+                    ImageUrl = "Garment08.jpg",
+                    IsAccessory = false,
+                    SpecialOfferPrice = 0
                 },
                 new Garment
                 {
                     Colour = Colours.Grey,
                     Department = Department.Computing,
                     Description = "Add a description here",
-                    GarmentID = 9,
-                    GarmentName = "Add name here",
+                    GarmentName = "Garment 9",
                     Gender = Gender.Male,
                     Price = 9,
                     Length = Length.Long,
                     Size = Sizes.Large,
-                    Sleeves = Sleeves.Long
+                    Sleeves = Sleeves.Long,
+                    ImageUrl = "Garment09.jpg",
+                    IsAccessory = false,
+                    SpecialOfferPrice = 0
                 },
                 new Garment
                 {
                     Colour = Colours.Black,
                     Department = Department.Science,
                     Description = "Add a description here",
-                    GarmentID = 10,
-                    GarmentName = "Add name here",
+                    GarmentName = "Garment 10",
                     Gender = Gender.Male,
                     Price = 9,
                     Length = Length.Long,
                     Size = Sizes.Large,
-                    Sleeves = Sleeves.Long
+                    Sleeves = Sleeves.Long,
+                    ImageUrl = "Garment10.jpg",
+                    IsAccessory = false,
+                    SpecialOfferPrice = 0
                 }
             };
 
