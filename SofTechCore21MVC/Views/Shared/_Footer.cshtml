@@ -1,5 +1,65 @@
-﻿<hr />
-<footer>
-    <p>&copy; 2019 - SofTechCore21MVC</p>
-    <a href="/Customers/Index">Staff Portal</a>
-</footer>
+﻿<section class="container body-content">
+    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+    </asp:ContentPlaceHolder>
+    <hr />
+    <footer class="row">
+        <p class="text-center">
+            <i class="fab fa-facebook"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-twitter"></i>
+        </p>
+        <section class="col-lg-3">
+            <p class="font-weight-bold">Contact Us</p>
+            <p>Email: student@clothes.co.uk</p>
+            <address>
+                20 Oak Road, Canary Wharf, London, E14 5NR
+                <abbr title="Phone">P:</abbr>
+                020 3865 1787
+            </address>
+        </section>
+        <section class="col-lg-3">
+            <p class="font-weight-bold">Shop</p>
+            <ul>
+                <li><a runat="server" href="~/Home/Women">Women</a></li>
+                <li><a runat="server" href="~/Home/Men">Men</a></li>
+                <li><a runat="server" href="~/Home/Accessories">Accessories</a></li>
+            </ul>
+        </section>
+        <section class="col-lg-3">
+            <p class="font-weight-bold">Enquiries</p>
+            <ul>
+                <li><a runat="server" href="~/Home/CustomerService">Customer Service</a></li>
+                <li><a runat="server" href="~/Home/Privacy">Privacy</a></li>
+            </ul>
+        </section>
+        <section class="col-lg-3">
+            <p class="font-weight-bold">Directions</p>
+            <div class="mapouter">
+                <div class="gmap_canvas"><iframe width="166" height="103" id="gmap_canvas" src="https://maps.google.com/maps?q=Oak%20Road%2C%20London&t=&z=11&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.embedgooglemap.net">embedgooglemap.net</a></div>
+                <style>
+                    .mapouter {
+                        position: relative;
+                        text-align: right;
+                        height: 103px;
+                        width: 166px;
+                    }
+
+                    .gmap_canvas {
+                        overflow: hidden;
+                        background: none !important;
+                        height: 103px;
+                        width: 166px;
+                    }
+                </style>
+            </div>
+        </section>
+        <section>
+            <p class="text-center">
+                &copy; 2019 - SofTechCore21MVC <img src="http://www.w3.org/html/logo/badge/html5-badge-h-css3-semantics.png" width="43" height="15" alt="HTML5 Powered with CSS3 / Styling, and Semantics" title="HTML5 Powered with CSS3 / Styling, and Semantics">
+            </p>
+            <p class="text-center">
+                <a href="/Customers/Index">Staff Portal</a>
+            </p>
+        </section>
+    </footer>
+</section>
