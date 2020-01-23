@@ -40,7 +40,6 @@ namespace SofTechCore21MVC.Models
             County = Counties.Bucks;
             Country = Countries.UK;
         }
-
     }
 
     public enum Counties 
