@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SofTechCore21MVC.Data;
@@ -8,6 +9,7 @@ using SofTechCore21MVC.Models;
 
 namespace SofTechCore21MVC.Controllers
 {
+    //[Authorize(Roles="Admin")]
     public class CustomersController : Controller
     {
         public const string BIRTH_DATE_SORT_PARAM = "BirthDateSortParm";
