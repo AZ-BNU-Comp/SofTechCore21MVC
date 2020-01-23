@@ -32,14 +32,19 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Women">Women</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Men">Men</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Accessories">Accessories</a></li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" asp-controller="Customers" asp-action="Index" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                             Customers
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                            <li><a asp-controller="Addresses" asp-action="Index">Address</a></li>
-                            <li><a asp-controller="PaymentCards" asp-action="Index">PaymentCards</a></li>
+                            <li><a asp-controller="Customers" asp-action="Index">Personal Details</a></li>
+                            <li><a asp-controller="Addresses" asp-action="Index">Addresses</a></li>
+                            <li><a asp-controller="PaymentCards" asp-action="Index">Payment Cards</a></li>
                             <li><a asp-controller="Favourites" asp-action="Index">Favourites</a></li>
                             <li><a asp-controller="Reviews" asp-action="Index">Reviews</a></li>
                             <li><a asp-controller="Complaints" asp-action="Index">Complaints</a></li>

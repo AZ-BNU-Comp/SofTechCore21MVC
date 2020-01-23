@@ -1,65 +1,42 @@
-﻿@model SofTechCore21MVC.Models.Customer
+﻿@model SofTechCore21MVC.Models.CustomerViewModel
 
 @{
     ViewData["Title"] = "Details";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<header class="jumbotron">
+    <h2>Customer Details</h2>
+</header>
 
-<div>
-    <h4>Customer</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.FirstName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Surname)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Surname)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.BirthDate)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.BirthDate)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Gender)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Gender)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.PhoneNumber)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.PhoneNumber)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.TelephoneNo)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.TelephoneNo)
-        </dd>
-    </dl>
-</div>
-<div>
-    <h2>Address</h2>
-    @*<p>@Model.Address.HouseNumber</p>*@
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.CustomerID">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+<div class="row">
+    <div class="col-lg-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">@Model.Customer.FullName()</h3>
+            </div>
+            <div class="panel-body">
+                <partial name="_CustomerDetails" model="Model.Customer"/>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">@Model.Address.PostCode</h3>
+            </div>
+            <div class="panel-body">
+                <partial name="_AddressDetails" model="Model.Address" />
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">@Model.PaymentCard.CardName</h3>
+            </div>
+            <div class="panel-body">
+                <partial name="_PaymentCard" model="Model.PaymentCard" />
+            </div>
+        </div>
+    </div>
 </div>

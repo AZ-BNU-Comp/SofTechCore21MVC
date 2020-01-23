@@ -1,5 +1,38 @@
 ﻿@model SofTechCore21MVC.Models.CustomerViewModel
 
-<partial name="_CustomerDetails" model="Model.Customer" />
+<header class="jumbotron">
+    <h2>My Details</h2>
+</header>
 
-<partial name="_PaymentCard" model="Model.PaymentCard" />
+<div class="row">
+    <div class="col-lg-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">@Model.Customer.FullName()</h3>
+            </div>
+            <div class="panel-body">
+                <partial name="_CustomerDetails" model="Model.Customer" />
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">@Model.Address.PostCode</h3>
+            </div>
+            <div class="panel-body">
+                <partial name="_AddressDetails" model="Model.Address" />
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">@Model.PaymentCard.CardName</h3>
+            </div>
+            <div class="panel-body">
+                <partial name="_PaymentCard" model="Model.PaymentCard" />
+            </div>
+        </div>
+    </div>
+</div>

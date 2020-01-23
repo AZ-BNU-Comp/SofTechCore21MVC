@@ -35,3 +35,11 @@ body {
         display: none;
     }
 }
+
+.footer{
+    padding: 10px;
+}
+
+.home-image{
+    width: 15%;
+}

@@ -3,10 +3,8 @@
     ViewData["Title"] = "_PaymentCard";
 }
 
-<h2>Payment Cards</h2>
-
 <div>
-    <h4>Details</h4>
+    <h4>Payment Card</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -48,7 +46,7 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.PaymentCardID">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a class="btn btn-default" asp-action="Edit" asp-route-id="@Model.PaymentCardID">Edit</a>
+    <a class="btn btn-info" asp-action="Index">Go Back</a>
 </div>
 

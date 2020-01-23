@@ -4,12 +4,12 @@
     ViewData["Title"] = "Delete";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
-<h2>Delete</h2>
-
+<header class="jumbotron">
+    <h2>Delete Payment Card</h2>
+</header>
 <h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>PaymentCard</h4>
+    <h4>Payment Card</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -52,7 +52,7 @@
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="PaymentCardID" />
-        <input type="submit" value="Delete" class="btn btn-default" /> |
-        <a asp-action="Index">Back to List</a>
+        <input type="submit" value="Delete" class="btn btn-default" />
+        <a class="btn btn-info" asp-action="Index">Go Back</a>
     </form>
 </div>

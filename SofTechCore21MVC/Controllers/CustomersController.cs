@@ -99,6 +99,8 @@ namespace SofTechCore21MVC.Controllers
         // GET: Customers/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+            CustomerViewModel model = new CustomerViewModel();
+
             if (id == null)
             {
                 return NotFound();
@@ -112,7 +114,15 @@ namespace SofTechCore21MVC.Controllers
                 return NotFound();
             }
 
-            return View(customer);
+            model.Customer = customer;
+
+            var paymentCard = _context.PaymentCard.FirstOrDefault(p => p.PaymentCardID == customer.PaymentCardID);
+            model.PaymentCard = paymentCard;
+
+            var address = _context.Address.FirstOrDefault(a => a.AddressID == customer.AddressID);
+            model.Address = address;
+
+            return View(model);
         }
 
         // GET: Customers/Create

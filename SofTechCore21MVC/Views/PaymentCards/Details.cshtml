@@ -5,4 +5,20 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<partial name="_PaymentCard" />
+
+<header class="jumbotron">
+    <h2>Payment Card Details</h2>
+</header>
+
+<div class="row">
+    <div class="col-lg-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">@Model.CardName</h3>
+            </div>
+            <div class="panel-body">
+                <partial name="_PaymentCard" />
+            </div>
+        </div>
+    </div>
+</div>

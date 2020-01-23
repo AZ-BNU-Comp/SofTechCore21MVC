@@ -5,9 +5,10 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Edit</h2>
 
-<h4>PaymentCard</h4>
+<header class="jumbotron">
+    <h2>Edit Payment Card Details</h2>
+</header>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -46,13 +47,10 @@
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-default" />
+                <a class="btn btn-info" asp-action="Index">Go Back</a>
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {

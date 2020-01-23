@@ -1,66 +1,97 @@
-﻿@model IEnumerable<SofTechCore21MVC.Models.PaymentCard>
+﻿@model PaginatedList<SofTechCore21MVC.Models.PaymentCard>
 
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Index</h2>
-
+<header class="jumbotron">
+    <h2>List Of All Payment Cards</h2>
+    <p>Staff can use this page to check payment card details and to sort out any payment card issues.</p>
+</header>
 <p>
-    <a asp-action="Create">Create New</a>
+    <a class="btn btn-default" asp-action="Create">Create New</a>
 </p>
-<table class="table">
-    <thead>
+<form asp-action="Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Find by name: <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
+            <input type="submit" value="Search" class="btn btn-default" />
+            <a class="btn btn-info" asp-action="Index">Back to Full List</a>
+        </p>
+    </div>
+</form>
+<table class="table table-bordered table-hover">
+    <thead class="bg-info">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.CardType)
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["CardTypeSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Card Type</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CardName)
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["CardNameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Card Name</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CardNumber)
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["CardNumberSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Card Number</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ExpiryMonth)
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["ExpiryMonthSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Expiry Month</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ExpiryYear)
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["ExpiryYearSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Expiry Year</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.SecurityNumber)
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["SecurityNumberSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Security Number</a>
             </th>
-            <th></th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.CardType)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CardName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CardNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ExpiryMonth)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ExpiryYear)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SecurityNumber)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.PaymentCardID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.PaymentCardID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.PaymentCardID">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CardType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CardName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CardNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ExpiryMonth)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ExpiryYear)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SecurityNumber)
+                </td>
+                <td>
+                    <a class="btn btn-success" asp-action="Edit" asp-route-id="@item.PaymentCardID"><i class="fas fa-edit"></i></a>
+                    <a class="btn btn-info" asp-action="Details" asp-route-id="@item.PaymentCardID"><i class="fas fa-info"></i></a>
+                    <a class="btn btn-warning" asp-action="Delete" asp-route-id="@item.PaymentCardID"><i class="fas fa-trash"></i></a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex - 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @prevDisabled">
+    Previous
+</a>
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex + 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @nextDisabled">
+    Next
+</a>

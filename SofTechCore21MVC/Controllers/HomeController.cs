@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SofTechCore21MVC.Data;
 using SofTechCore21MVC.Models;
@@ -46,7 +47,7 @@ namespace SofTechCore21MVC.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-       
+       [Authorize]
         public IActionResult MyAccount()
         {
             CustomerViewModel model = new CustomerViewModel();
@@ -67,8 +68,12 @@ namespace SofTechCore21MVC.Controllers
             }
 
             model.Customer = customer;
+
             var paymentCard = _context.PaymentCard.FirstOrDefault(p => p.PaymentCardID == customer.PaymentCardID);
             model.PaymentCard = paymentCard;
+
+            var address = _context.Address.FirstOrDefault(a => a.AddressID == customer.AddressID);
+            model.Address = address;
 
             return View(model);
         }
@@ -81,6 +86,10 @@ namespace SofTechCore21MVC.Controllers
             return View();
         }
         public IActionResult Accessories()
+        {
+            return View();
+        }
+        public IActionResult CustomerService()
         {
             return View();
         }

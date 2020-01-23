@@ -20,9 +20,62 @@ namespace SofTechCore21MVC.Controllers
         }
 
         // GET: PaymentCards
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder,
+                                               string currentFilter,
+                                               string searchString,
+                                               int? pageNumber)
         {
-            return View(await _context.PaymentCard.ToListAsync());
+            ViewData["CurrentSort"] = sortOrder;
+            ViewData["CardTypeSortParm"] = String.IsNullOrEmpty(sortOrder) ? "cardtype_desc" : "CardType";
+            ViewData["CardNameSortParm"] = sortOrder == "CardName" ? "cardname_desc" : "CardName";
+            ViewData["CardNumberSortParm"] = sortOrder == "CardNumber" ? "cardnumber_desc" : "CardNumber";
+            ViewData["ExpiryMonthSortParm"] = sortOrder == "ExpiryMonth" ? "expirymonth_desc" : "ExpiryMonth";
+            ViewData["ExpiryYearSortParm"] = sortOrder == "ExpiryYear" ? "expiryyear_desc" : "ExpiryYear";
+            ViewData["SecurityNumberSortParm"] = sortOrder == "SecurityNumber" ? "securitynumber_desc" : "SecurityNumber";
+
+            if (searchString != null)
+            {
+                pageNumber = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewData["CurrentFilter"] = searchString;
+
+            var paymentcards = from p in _context.PaymentCard select p;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                paymentcards = paymentcards.Where(p => p.CardNumber.Contains(searchString)
+                                       || p.CardName.Contains(searchString));
+            }
+
+            switch (sortOrder)
+            {
+                case "cardtype_desc":
+                    paymentcards = paymentcards.OrderByDescending(c => c.CardType);
+                    break;
+                case "cardname_desc":
+                    paymentcards = paymentcards.OrderByDescending(c => c.CardName);
+                    break;
+                case "cardnumber_desc":
+                    paymentcards = paymentcards.OrderBy(c => c.CardNumber);
+                    break;
+                case "expirymonth_desc":
+                    paymentcards = paymentcards.OrderByDescending(c => c.ExpiryMonth);
+                    break;
+                case "expiryyear_desc":
+                    paymentcards = paymentcards.OrderBy(c => c.ExpiryYear);
+                    break;
+                case "securitynumber_desc":
+                    paymentcards = paymentcards.OrderByDescending(c => c.SecurityNumber);
+                    break;
+            }
+
+            int pageSize = 4;
+            return View(await PaginatedList<PaymentCard>.CreateAsync(paymentcards.AsNoTracking(), pageNumber ?? 1, pageSize));
         }
 
         // GET: PaymentCards/Details/5
@@ -46,7 +99,9 @@ namespace SofTechCore21MVC.Controllers
         // GET: PaymentCards/Create
         public IActionResult Create()
         {
-            return View();
+            PaymentCard paymentCard = new PaymentCard();
+
+            return View(paymentCard);
         }
 
         // POST: PaymentCards/Create

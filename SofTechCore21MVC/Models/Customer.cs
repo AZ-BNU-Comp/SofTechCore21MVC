@@ -70,5 +70,10 @@ namespace SofTechCore21MVC.Models
         {
             PhoneNumber = PhoneTypes.Mobile;
         }
+
+        public string FullName()
+        {
+            return FirstName + " " + Surname;
+        }
     }
 }
