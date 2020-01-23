@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SofTechCore21MVC.Data;
 using SofTechCore21MVC.Models;
 
@@ -75,12 +76,25 @@ namespace SofTechCore21MVC.Controllers
             var address = _context.Address.FirstOrDefault(a => a.AddressID == customer.AddressID);
             model.Address = address;
 
+            var orders = _context.ShoppingCart.Where(o => o.CustomerID == customer.CustomerID);
+            model.Orders = orders;
+
+            ViewBag.Customer = "Customer";
+
             return View(model);
         }
+        public IActionResult OrderItems(int id)
+        {
+            var orderItems = _context.Orderitem.Include(o => o.Garment).Include(o => o.ShoppingCart).Where(i => i.ShoppingCartID == id).ToList();
+            return View(orderItems);
+        }
+
         public IActionResult Women()
         {
             return View();
         }
+
+
         public IActionResult Men()
         {
             return View();
