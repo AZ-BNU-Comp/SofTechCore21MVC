@@ -1,4 +1,5 @@
 ﻿@model SofTechCore21MVC.Models.PaymentCard
+
 @{
     ViewData["Title"] = "_PaymentCard";
 }
@@ -46,7 +47,6 @@
     </dl>
 </div>
 <div>
-    <a class="btn btn-default" asp-action="Edit" asp-route-id="@Model.PaymentCardID">Edit</a>
+    <a class="btn btn-default" asp-controller="PaymentCards" asp-action="Edit" asp-route-id="@Model.PaymentCardID">Edit</a>
     <a class="btn btn-info" asp-action="Index">Go Back</a>
 </div>
-

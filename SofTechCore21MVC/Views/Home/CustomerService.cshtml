@@ -4,9 +4,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<header class="jumbotron">
-    <h2>Customer Service</h2>
-</header>
+    <header class="jumbotron">
+        <h2>Customer Service</h2>
+        <p>Customer Service is available every day from 8am to 8pm, except on bank holidays.</p>
+    </header>
 
 
 <section>
@@ -26,5 +27,44 @@
                 </section>
             </section>
         </section>
+    </article>
+</section>
+<section>
+    <article class="panel panel-default">
+        <header class="panel-heading">
+            <h2 class="panel-title">Join Our Newsletter</h2>
+        </header>
+        <fieldset class="panel-body">
+            <section class="form-group">
+                <label for="inputEmail3" class="col-sm-3 control-label">Email</label>
+                <section class="col-sm-9">
+                    <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                </section>
+            </section>
+            <br />
+            <br />
+            <section class="form-group">
+                <label for="inputFullName3" class="col-sm-3 control-label">Full Name</label>
+                <section class="col-sm-9">
+                    <input class="form-control" id="inputFullName3"
+                           placeholder="Janet Green" required pattern=".{3,}" title="Please enter more than 3 characters" type="text">
+                </section>
+            </section>
+            <br />
+            <br />
+            <section class="form-group">
+                <section class="col-sm-offset-3 col-sm-9">
+                    <section class="checkbox">
+                        <label><input type="checkbox">Remember me</label>
+                    </section>
+                </section>
+            </section>
+            <section class="form-group">
+                <section class="col-sm-offset-3 col-sm-9">
+                    <button type="submit" class="btn btn-default">Submit</button>
+                    <br />
+                </section>
+            </section>
+        </fieldset>
     </article>
 </section>
