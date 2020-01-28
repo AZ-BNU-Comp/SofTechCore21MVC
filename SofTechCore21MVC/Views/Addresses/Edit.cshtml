@@ -25,7 +25,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="County" class="control-label"></label>
-                <select asp-for="County" class="form-control"></select>
+                <select asp-for="County" asp-items="@Html.GetEnumSelectList<Counties>()"  class="form-control"></select>
                 <span asp-validation-for="County" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -40,7 +40,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Country" class="control-label"></label>
-                <select asp-for="Country" class="form-control"></select>
+                <select asp-for="Country" asp-items="@Html.GetEnumSelectList<Countries>()" class="form-control"></select>
                 <span asp-validation-for="Country" class="text-danger"></span>
             </div>
             <div class="form-group">
