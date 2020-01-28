@@ -20,7 +20,7 @@ namespace SofTechCore21MVC.Models
         public int Quantity { get; set; }
 
         [Required, DataType(DataType.Currency)]
-        [DisplayFormat(DataFormatString ="{C:0}")]
+        //[DisplayFormat(DataFormatString ="{C:0}")]
         public decimal PurchasePrice { get; set; }
 
         // Navigation Properties
