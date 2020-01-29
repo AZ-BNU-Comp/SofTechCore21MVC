@@ -16,13 +16,13 @@ namespace SofTechCore21MVC.Models
         public int CustomerID { get; set; }
 
         [Required]
-        [Display(Name = "Date of Birth")]
+        [Display(Name = "Date Purchased")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime OrderDate { get; set; }
 
         [Required]
-        [Display(Name = "Date of Birth")]
+        [Display(Name = "Date of Recieved ")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime DeliveryDate { get; set; }

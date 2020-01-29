@@ -395,7 +395,7 @@ namespace SofTechCore21MVC.Data
                     Colour = Colours.Black,
                     Department = Department.Business,
                     Description = "Add a description here",
-                    GarmentName = "Add name here",
+                    GarmentName = "Garment 1",
                     Gender = Gender.Female,
                     Price = 9,
                     Length = Length.Regular,
