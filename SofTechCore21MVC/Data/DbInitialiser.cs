@@ -670,7 +670,7 @@ namespace SofTechCore21MVC.Data
                     Quantity = 3,
                     PurchasePrice = 15,
                     GarmentID = 2,
-                    ShoppingCartID = 2,
+                    ShoppingCartID = 1,
                 },    
                 new OrderItem
                 {
@@ -732,7 +732,7 @@ namespace SofTechCore21MVC.Data
                 {
                     Quantity = 12,
                     PurchasePrice = 60,
-                    GarmentID = 11,
+                    GarmentID = 1,
                     ShoppingCartID = 8,
                 },    
                 new OrderItem
@@ -746,7 +746,7 @@ namespace SofTechCore21MVC.Data
                 {
                     Quantity = 14,
                     PurchasePrice = 70,
-                    GarmentID = 11,
+                    GarmentID = 8,
                     ShoppingCartID = 10,
                 }
                 //,new OrderItem

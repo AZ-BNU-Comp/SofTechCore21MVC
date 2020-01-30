@@ -11,7 +11,7 @@ using SofTechCore21MVC.Models;
 
 namespace SofTechCore21MVC.Controllers
 {
-    //[Authorize (Roles ="Admin")]
+    //[Authorize (Roles ="Admin")///]
     public class AddressesController : Controller
     {
         private readonly ApplicationDbContext _context;
