@@ -525,6 +525,7 @@ namespace SofTechCore21MVC.Data
                     IsAccessory = false,
                     SpecialOfferPrice = 0
                 },
+
                 new Garment
                 {
                     Colour = Colours.Black,
